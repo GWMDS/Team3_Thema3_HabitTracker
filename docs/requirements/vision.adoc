@@ -26,7 +26,7 @@ Siehe <<#glossary, Glossar>>.
 == Positionierung
 
 === Fachliche Motivation
-//Erläutern Sie kurz den Hintergrund, in dem das Projekt angesiedelt ist. Welches Problem soll gelöst werden, wie ist es entstanden? Welche Verbesserung wird angestrebt. Achten Sie darauf, eine fachliche (organisatorische, betriebswirtschaftliche) Perspektive einzunehmen.
+In einem zunehmend hektischen Alltag fällt es vielen Menschen schwer, ihre persönlichen Ziele im Blick zu behalten und nachhaltige Verhaltensänderungen umzusetzen. Obwohl die Bedeutung von Routinen für Gesundheit, Produktivität und Wohlbefinden allgemein anerkannt ist, fehlt es oft an geeigneten Werkzeugen zur Unterstützung dieses Prozesses. Klassische To-do-Listen, Kalender oder allgemeine Produktivitätstools sind oft zu unflexibel oder unübersichtlich, wenn es um langfristige Gewohnheitsbildung geht. Hier setzt unser Projekt an: Ziel ist es, eine Habit-Tracking-App zu entwickeln, die Menschen hilft, positive Verhaltensweisen zu etablieren, schädliche Muster abzulegen und bewährte Routinen aufrechtzuerhalten – mit einem klaren Fokus auf Selbstreflexion und individueller Anpassbarkeit. Die angestrebte Verbesserung liegt in einer intuitiven, motivierenden und datengestützten Lösung zur kontinuierlichen Verhaltensentwicklung.
 
 === Produktvision
 //Eine Produktvision beschreibt das Einsatzziel der Anwendung und sorgt für ein gemeinsames Ziel und Verständnis für alle Beteiligten im Projekt. Geben Sie in knapper Form übersichtsartig die Positionierung der angestrebten Lösung im Vergleich zu verfügbaren Alternativen dar. Das folgende Format kann dazu verwendet werden:
@@ -34,13 +34,13 @@ Siehe <<#glossary, Glossar>>.
 
 [cols="1,3"]
 |===
-| Für | [Zielkunde / Persona]
-| der / die | [Angabe des Bedarfs oder Chance]
-| ist das  | [Produktname]
-| eine  | [Produktkategorie]
-| der / die | [Aussage zum Hauptvorteil / Alleinstellungsmerkmal]
-| anders als | [wesentliche Lösungsalternative]
-| kann unser Produkt | [Aussage zum Hauptunterschied]
+| Für | [Menschen, die ihre Gewohnheiten bewusst gestalten wollen]
+| die | [gezielt Verhaltensweisen etablieren, verändern oder beibehalten möchten]
+| ist das  | [Produkt]
+| eine  | [digitale Habit-Tracking-App]
+|die |[die bewusste Selbststeuerung durch flexibles Tracking und Selbstreflexion unterstützt]
+| anders als | [klassische Kalender- oder To-do-Apps]
+| kann unser Produkt | [gezielt beim Angewöhnen, Abgewöhnen und Stabilisieren von Verhaltensweisen helfen und persönliche Muster sichtbar machend]
 |===
 
 
