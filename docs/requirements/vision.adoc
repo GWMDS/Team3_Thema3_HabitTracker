@@ -64,9 +64,10 @@ In einem zunehmend hektischen Alltag fällt es vielen Menschen schwer, ihre pers
 |===
 | Name | Beschreibung | Verantwortlichkeiten
 
-| [Benennung des Stakeholders (als Rolle)]
-| [Kurze Beschreibung des Stakeholders und seiner Ziele]
-| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+//| [Benennung des Stakeholders (als Rolle)]
+//| [Kurze Beschreibung des Stakeholders und seiner Ziele]
+//| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+
 |Standards und Gesetze
 |umfasst rechtliche, normative und regulatorische Instanzen
 a| * Rechtskonformität (z.B. Einhaltung der DSGVO, Urheberrecht, IT-Sicherheitsgesetz)
@@ -83,6 +84,19 @@ a| * verständlichen, gut lesbaren, kommentierten Code schreiben
    * möglicherweise an Style Guides halten
    * Git-Commits mit kurzer, aber klarer Nachricht und optionaler Beschreibung
    * Einhaltung von Deadlines
+|Schulungspersonal
+|gibt es nur bedingt, da die Anwendung für einzelpersonen gedacht ist
+a| * einfach verständliches UI
+   * kurze Einführung in App
+|Gruppe von Nutzern
+|
+|
+|Produktgegner
+|
+|
+|Käufer des Systems
+|
+|
 |===
 
 Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
