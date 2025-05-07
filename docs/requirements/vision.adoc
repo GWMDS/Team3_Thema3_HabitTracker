@@ -75,9 +75,14 @@ a| * Rechtskonformität (z.B. Einhaltung der DSGVO, Urheberrecht, IT-Sicherheits
   * Interoperabilität unterstützend (z.B. durch Einhaltung offener Standards wie HL7 im Gesundheitswesen)
   * Barrierefreiheit gewährleistend (z.B. gemäß Barrierefreiheitsstärkungsgesetz (BFSG) oder WCAG)
   * Nachhaltig  (z.B. durch Umweltauflagen oder Energieeffizienzstandards)
-|
-|
-|
+|Entwicklungsteam
+a| * allgemeiner Entwickler
+   * UI Designer
+   * Tester
+a| * verständlichen, gut lesbaren, kommentierten Code schreiben
+   * möglicherweise an Style Guides halten
+   * Git-Commits mit kurzer, aber klarer Nachricht und optionaler Beschreibung
+   * Einhaltung von Deadlines
 |===
 
 Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
