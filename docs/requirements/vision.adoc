@@ -67,6 +67,17 @@ Siehe <<#glossary, Glossar>>.
 | [Benennung des Stakeholders (als Rolle)]
 | [Kurze Beschreibung des Stakeholders und seiner Ziele]
 | [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
+|Standards und Gesetze
+|umfasst rechtliche, normative und regulatorische Instanzen
+a| * Rechtskonformität (z.B. Einhaltung der DSGVO, Urheberrecht, IT-Sicherheitsgesetz)
+  * Sicher (z.B. nach ISO/IEC 27001 für Informationssicherheit) 
+  * Transparenz und Nachvollziehbarkeit (z.B. Dokumentationspflichten)
+  * Interoperabilität unterstützend (z.B. durch Einhaltung offener Standards wie HL7 im Gesundheitswesen)
+  * Barrierefreiheit gewährleistend (z.B. gemäß Barrierefreiheitsstärkungsgesetz (BFSG) oder WCAG)
+  * Nachhaltig  (z.B. durch Umweltauflagen oder Energieeffizienzstandards)
+|
+|
+|
 |===
 
 Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
