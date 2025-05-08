@@ -69,7 +69,7 @@ In einem zunehmend hektischen Alltag fällt es vielen Menschen schwer, ihre pers
 //| [Fassen Sie die wesentlichen Verantwortlichkeiten des Stakeholder mit Bezug auf das zu entwickelnde System kurz zusammen, d.h. ihr besonderen Interessen. Beispiele: Dieser Stakeholder sorgt dafür, dass das System gewartet wird / dass die angezeigten Daten aktuell sind / überwacht den Projektfortschritt / usw.]
 
 |Standards und Gesetze
-|umfasst rechtliche, normative und regulatorische Instanzen
+|Umfasst rechtliche, normative und regulatorische Instanzen
 a| * Rechtskonformität (z.B. Einhaltung der DSGVO, Urheberrecht, IT-Sicherheitsgesetz)
   * Sicher (z.B. nach ISO/IEC 27001 für Informationssicherheit) 
   * Transparenz und Nachvollziehbarkeit (z.B. Dokumentationspflichten)
@@ -77,9 +77,7 @@ a| * Rechtskonformität (z.B. Einhaltung der DSGVO, Urheberrecht, IT-Sicherheits
   * Barrierefreiheit gewährleistend (z.B. gemäß Barrierefreiheitsstärkungsgesetz (BFSG) oder WCAG)
   * Nachhaltig  (z.B. durch Umweltauflagen oder Energieeffizienzstandards)
 |Entwicklungsteam
-a| * allgemeiner Entwickler
-   * UI Designer
-   * Tester
+|Allgemeine Entwickler, UI-Designer, Tester
 a| * verständlichen, gut lesbaren, kommentierten Code schreiben
    * möglicherweise an Style Guides halten
    * Git-Commits mit kurzer, aber klarer Nachricht und optionaler Beschreibung
@@ -89,14 +87,19 @@ a| * verständlichen, gut lesbaren, kommentierten Code schreiben
 a| * einfach verständliches UI
    * kurze Einführung in App
 |Gruppe von Nutzern
-|
-|
+|Personen die, die App letztendlich Nutzen werden
+a|* Feedback zur Usability geben
+  * Regelmäßige Nutzung der App sicherstellen
+  * Bedürfnisse und Anforderungen als Grundlage für Weiterentwicklungen liefern
 |Produktgegner
-|
-|
+|Personen, die vom Produkt noch nicht überzeugt sind
+a| * Kritikpunkte äußern, die als Grundlage für Verbesserungen dienen können
+   * Ziel von Marketing- und Überzeugungsmaßnahmen
 |Käufer des Systems
-|
-|
+|Entscheidungsträger, die über die Anschaffung oder Finanzierung entscheiden
+a| * vom Nutzen und der Rentabilität überzeugt werden
+   * Anforderungen hinsichtlich Wirtschaftlichkeit, Skalierbarkeit und ROI formulieren
+
 |===
 
 Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mittels Personas vorgenommen.
