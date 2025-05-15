@@ -1,5 +1,5 @@
 = Architecture Notebook: {project-name}
-Vorname Nachname <email@domain.org>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
+Eric Hübel <eric.huebel@stud.htw-dresden.de>; Vorname2 Nachname2 <email2@domain.org>; Vorname3 Nachname3 <email3@domain.org>
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -17,10 +17,23 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Hinweise: Beschreiben Sie den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
+Das System soll als eine Progressive Web App (PWA) umgesetzt werden, um die Kompalibiltät mit möglichst vielen Geräten zu gewährleisten.
 
+- *Plattformunabhängigkeit:* die Anwendung läuft im Webbrowser und soll auf PCs, Tablets und Smartphones bedienbar sein (-> Responsive Design)
+- *Offline-Nutzung:* durch einen Service-Worker cacht die PWA alle Daten, sodass eine Nutzung ohne Internetverbindung möglich ist
+- *einfache Bereitstellung:* durch den Webansatz ist keine komplizierte Installation notwendig (Nutzer können die App einfach als Icon auf den Homescreen hinzufügen)
+
+Kritische Fragen:
+
+- ist neben der PWA ein zusätzliches Backend nötig (Datenbank etc.) oder nur clientseitiges Arbeiten?
+- gibt es sonst noch irgendwelche externen APIs auf die man zugreifen müsste?
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
+- Zielsystem hat einen modernen Browser (Firefox, Chrome, Safari) und Internetverbindung
+- Teammitglieder besitzen grundlegende Kenntnisse in Webprogrammierung (HTML, CSS, Javascript)
+- möglicherweise Einsatz von Vue.js, React, ... als Frontend-Framework für PWA?
+- möglicherweise Einsatz von Node.js, Flask, ... als Backend-Framework (optional, je nach Bedarf für Datenpersistenz oder APIs)
 
 
 == Architektur-relevante Anforderungen
