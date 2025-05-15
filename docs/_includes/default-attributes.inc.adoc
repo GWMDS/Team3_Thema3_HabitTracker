@@ -1,6 +1,6 @@
 // Meta
-:project-name: Projektthema (T00)
-:project-system-name: Software-Name
+:project-name: Habit Tracker - Gr.3C
+:project-system-name: to be announced
 // Settings:
 :toc:
 :toc-title: Inhaltsverzeichnis
