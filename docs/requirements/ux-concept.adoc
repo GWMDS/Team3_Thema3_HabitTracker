@@ -25,27 +25,36 @@ In diesem Dokument werden die Benutzeroberflächen des Systems {project-system-n
 *Familienstand*: verheiratet, 2 Kinder
 *Wohnort*: Dresden
 *Beruf*: Dozent für Medienpädagogik
+
 *Verhaltensvariablen*:
-*Introvertiert – Extrovertiert*: leicht introvertiert
-*Risikoscheu – Risikobereit*: risikoscheu
-*Konservativ – Innovativ*: eher konservativ
-*Kommunikation*: bevorzugt E-Mail, dann Chat, meidet Telefonate
+
+introvertiert —————⬤——— extrovertiert
+
+risikoscheu ⬤——————— risikobereit
+
+konservativ ⬤——————— innovativ
+
+Telefon ————⬤———— Chat ———— E-Mail
+
 *Technologische Nutzung*:
 Nutzt Computer v. a. beruflich (Recherche, Lehre)
 Smartphone nur für Termine und Kommunikation
 Meidet Social Media, hohe Sensibilität für Datenschutz
 Gute Internetkenntnisse, aber zurückhaltend gegenüber neuen Apps
+
 *Bedürfnisse/Ziele:*
 Fördert kritischen Umgang mit Medien
 Wert legt auf Selbstreflexion statt Fremdsteuerung
 Will persönliche Entwicklung ohne digitalen Druck
 Datenschutz und Offline-Funktionalität sind essenziell
+
 *Hindernisse/Frustrationen*:
 Misstrauisch gegenüber Tracking-Apps
 Ablehnung von Gamification („Spielerei“)
 Befürchtung, dass Apps echtes Nachdenken ersetzen
 Skepsis gegenüber datengetriebener Verhaltenslenkung
-✅ *Akzeptanzkriterien*:
+
+*Akzeptanzkriterien*:
 App funktioniert komplett offline, ohne Registrierung oder Cloud-Anbindung.
 Keine Gamification-Elemente wie Punkte oder Badges.
 Nutzer:innen können Gewohnheiten in Form eines schlichten Journals erfassen.
@@ -54,7 +63,55 @@ App verwendet keine Tracker oder Analyse-Tools im Hintergrund.
 Minimalistisches, nicht ablenkendes Design (ohne Benachrichtigungen).
 Möchtest du für Thomas auch eine konkrete UI-Idee oder Wireframe-Skizze mitgestalten?
 
-=== weitere Persona
+=== Lisa Sommer  
+[%hardbreaks]  
+*Leitspruch*: „Schritt für Schritt zur besten Version von mir selbst.“  
+*Demographie*:  
+*Alter*: 24  
+*Geschlecht*: weiblich  
+*Familienstand*: ledig  
+*Wohnort*: Leipzig  
+*Ausbildung*: Studentin der Psychologie (Master)  
+*Nebenjob*: Werkstudentin im Bereich Online-Beratung  
+
+*Verhaltensvariablen*: 
+
+introvertiert   ⬤——————— extrovertiert
+
+risikoscheu    ———⬤———— risikobereit
+
+konservativ    —————⬤——— innovativ
+
+Telefon        —————⬤——— Chat ———— E-Mail
+
+*Technologische Nutzung*:  
+Nutzt täglich Laptop (MacBook) und Smartphone (Android)  
+Vertraut mit Tools wie Notion, Trello, Google Kalender  
+Verwendet regelmäßig Fitness- und Meditations-Apps  
+Aktiv auf Instagram, TikTok & YouTube (hauptsächlich passiv)  
+Gute Internetverbindung (WLAN zu Hause, 5G mobil)  
+
+*Bedürfnisse/Ziele:*  
+Bessere Selbstorganisation im Studium  
+Gesündere Routinen aufbauen (z. B. Schlafrhythmus, Sport, Ernährung)  
+Motivation aufrechterhalten trotz Stressphasen  
+Fortschritte sichtbar machen und reflektieren  
+Alltag strukturieren ohne Druckgefühl  
+
+*Hindernisse/Frustrationen:*  
+Überforderung durch zu viele Tools/Apps  
+Schwierigkeit, langfristig motiviert zu bleiben  
+Rückschläge führen schnell zu Frustration  
+Fehlende Erinnerung oder klare Struktur  
+Zu komplizierte oder überladene Interfaces  
+
+*Akzeptanzkriterien:*  
+Intuitive, ruhige Benutzeroberfläche ohne visuelle Reizüberflutung  
+Sanfte Erinnerungen statt aufdringlicher Benachrichtigungen  
+Motivierende Visualisierungen von Fortschritt (z. B. sanfte Diagramme, Verlauf)  
+Integration von Reflexionsfragen oder Journaling-Funktionen  
+Verbindung zu Kalendern oder Tools wie Notion möglich  
+Kein Muss zur täglichen Nutzung – freiwillige Struktur statt Zwang  
 
 == Nutzungskontext
 // Beschreiben Sie die Arbeitsaufgaben, Arbeitsmittel, physische und soziale Umgebung, in der das Produkt genutzt wird. 
