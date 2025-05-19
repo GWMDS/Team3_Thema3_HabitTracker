@@ -1,5 +1,9 @@
 = Projektplan: {project-name}
+<<<<<<< HEAD
 Ahmad Alrmih <s86396@htw-dresden.de>; Maurice Harnisch <s87128@htw-dresden.de>; Marius Hoffmann <s86306@htw-dresden.de>; Eric Hübel <s86462@htw-dresden.de>; Victor Saeed <s87082@htw-dresden.de>; Luisa Wehner <s87064@htw-dresden.de>; Gabriel Wulkow Moreira da Silva <s87063@htw-dresden.de>;
+=======
+Luisa Wehner luisa.wehner@stud.htw-dresden.de; Gabriel Wulkow <s87063@htw-dresden.de>; Vorname3 Nachname3 <email3@domain.org>
+>>>>>>> 812fd83505845f1a5a3b59c9c89b56c2c7dfacd8
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
@@ -7,11 +11,25 @@ include::../_includes/default-attributes.inc.adoc[]
 
 == Einführung
 //Kurze Beschreibung und Überblick zum Dokument.
+Dieses DOkument beschreibt unsere Teamaufteilung und Arbeitsprinzipien. Außerdem wird über die Kriterien der Backlog Items für die Sprintplanung und den Abschluss der Aufgaben informiert. 
 
 
 == Projektorganisation
 //Introduce the project team, team members, and roles that they play during this project. If applicable, introduce work areas, domains, or technical work packages that are assigned to team members. Introduce neighboring projects, relationships, and communication channels. If the project is introduced somewhere else, reference that location with a link.
 
+Das Projektteam besteht aus 7 Mitgliedern aus den Studiengängen Informatik und Wirtschaftsinformatik. Wir arbeiten mit Scrum. Die Rollen sind wie folgt vergeben: 
+
+* Scrum Master: Luisa Wehner
+** Aufgaben: Organisation von Meetings, Team Kontakt und Teamarbeit nach Scrum-Prinzip
+
+* Project Owner: Victor Saeed
+** Aufgaben: 
+ 
+* Entwicklerteam: Eric Hübel, Gabriel Wulkow,
+                 Maurice Harnisch, Ahmad Alrmih und Marius Hoffmann
+** Aufgaben: 
+
+WIr kommunizieren über eine WHatsappgruppe und die Meetings werden über Discord remote gehalten. 
 
 == Praktiken und Bewertung
 //Describe or reference which management and technical practices will be used in the project, such as iterative development, continuous integration, independent testing and list any changes or particular configuration to the project. Specify how you will track progress in each practice. As an example, for iterative development the team may decide to use iteration assessments and iteration burndown reports and collect metrics such as velocity (completed work item points/ iteration).
@@ -20,8 +38,33 @@ include::../_includes/default-attributes.inc.adoc[]
 === Definition of Ready
 // Listen Sie hier die Kriterien auf, die ein Product Backlog Item (z.B. User Story) erfüllen muss, damit es bei der Sprint-Planung berücksichtigt werden kann
 
+Ein Product Backlog Item (z. B. eine User Story) kann für die Sprint-Planung berücksichtigt werden, wenn folgende Kriterien erfüllt sind:
+
+* Die User Story ist klar formuliert, inklusive Akzeptanzkriterien.
+* Die User Story wurde vom gesamten Team verstanden.
+* Der Nutzen (Business Value) ist bekannt.
+* Das Item wurde geschätzt (z. B. in Story Points).
+* Es ist klein genug, um innerhalb eines Sprints umgesetzt zu werden.
+* Alle relevanten Informationen, Anhänge oder Designs liegen vor.
+* Abhängigkeiten sind bekannt und geklärt.
+* Die User Story ist priorisiert.
+
 === Definition of Done
 // Listen Sie hier alle Kritierien auf, damit die Aufgabe eines bestimmten Typs (z.B. Task, User Story) als abgeschlossen gilt.
+
+Eine User Story oder ein Task gilt als abgeschlossen, wenn folgende Kriterien erfüllt sind:
+
+* Alle Akzeptanzkriterien sind erfüllt.
+* Der Code ist vollständig implementiert und getestet (Unit- und ggf. Integrationstests).
+* Der Code wurde von mindestens einer Person im Team reviewed.
+* Alle automatisierten Tests laufen erfolgreich durch.
+* Die Funktionalität wurde manuell getestet (falls erforderlich).
+* Es gibt keine bekannten offenen Bugs.
+* Die Änderung ist dokumentiert (z. B. in der technischen Doku oder im Changelog).
+* Die Implementierung ist in den Hauptbranch integriert.
+* Die Software ist bereit für den Release bzw. das Deployment.
+* Der Product Owner hat die Umsetzung abgenommen (falls vorgesehen).
+
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
