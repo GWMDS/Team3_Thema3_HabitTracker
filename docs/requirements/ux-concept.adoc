@@ -16,52 +16,6 @@ In diesem Dokument werden die Benutzeroberflächen des Systems {project-system-n
 
 == Personas
 // Fügen Sie hier als Tabelle oder Bild die Persons der wichtigsten Stakeholder ein
-=== Thomas Berger
-[%hardbreaks]
-*Leitspruch*: „Wenn man ständig alles trackt, verliert man den Blick fürs Wesentliche.“
-*Demographie*:
-*Alter*: 41
-*Geschlecht*: männlich
-*Familienstand*: verheiratet, 2 Kinder
-*Wohnort*: Dresden
-*Beruf*: Dozent für Medienpädagogik
-
-*Verhaltensvariablen*:
-
-introvertiert —————⬤——— extrovertiert
-
-risikoscheu ⬤——————— risikobereit
-
-konservativ ⬤——————— innovativ
-
-Telefon ————⬤———— Chat ———— E-Mail
-
-*Technologische Nutzung*:
-Nutzt Computer v. a. beruflich (Recherche, Lehre)
-Smartphone nur für Termine und Kommunikation
-Meidet Social Media, hohe Sensibilität für Datenschutz
-Gute Internetkenntnisse, aber zurückhaltend gegenüber neuen Apps
-
-*Bedürfnisse/Ziele:*
-Fördert kritischen Umgang mit Medien
-Wert legt auf Selbstreflexion statt Fremdsteuerung
-Will persönliche Entwicklung ohne digitalen Druck
-Datenschutz und Offline-Funktionalität sind essenziell
-
-*Hindernisse/Frustrationen*:
-Misstrauisch gegenüber Tracking-Apps
-Ablehnung von Gamification („Spielerei“)
-Befürchtung, dass Apps echtes Nachdenken ersetzen
-Skepsis gegenüber datengetriebener Verhaltenslenkung
-
-*Akzeptanzkriterien*:
-App funktioniert komplett offline, ohne Registrierung oder Cloud-Anbindung.
-Keine Gamification-Elemente wie Punkte oder Badges.
-Nutzer:innen können Gewohnheiten in Form eines schlichten Journals erfassen.
-Lokale Daten können jederzeit exportiert oder gelöscht werden.
-App verwendet keine Tracker oder Analyse-Tools im Hintergrund.
-Minimalistisches, nicht ablenkendes Design (ohne Benachrichtigungen).
-Möchtest du für Thomas auch eine konkrete UI-Idee oder Wireframe-Skizze mitgestalten?
 
 === Lisa Sommer  
 [%hardbreaks]  
@@ -112,6 +66,55 @@ Motivierende Visualisierungen von Fortschritt (z. B. sanfte Diagramme, Verlauf
 Integration von Reflexionsfragen oder Journaling-Funktionen  
 Verbindung zu Kalendern oder Tools wie Notion möglich  
 Kein Muss zur täglichen Nutzung – freiwillige Struktur statt Zwang  
+
+
+
+=== Thomas Berger
+[%hardbreaks]
+*Leitspruch*: „Wenn man ständig alles trackt, verliert man den Blick fürs Wesentliche.“
+*Demographie*:
+*Alter*: 41
+*Geschlecht*: männlich
+*Familienstand*: verheiratet, 2 Kinder
+*Wohnort*: Dresden
+*Beruf*: Dozent für Medienpädagogik
+
+*Verhaltensvariablen*:
+
+introvertiert —————⬤——— extrovertiert
+
+risikoscheu ⬤——————— risikobereit
+
+konservativ ⬤——————— innovativ
+
+Telefon ————⬤———— Chat ———— E-Mail
+
+*Technologische Nutzung*:
+Nutzt Computer v. a. beruflich (Recherche, Lehre)
+Smartphone nur für Termine und Kommunikation
+Meidet Social Media, hohe Sensibilität für Datenschutz
+Gute Internetkenntnisse, aber zurückhaltend gegenüber neuen Apps
+
+*Bedürfnisse/Ziele:*
+Fördert kritischen Umgang mit Medien
+Wert legt auf Selbstreflexion statt Fremdsteuerung
+Will persönliche Entwicklung ohne digitalen Druck
+Datenschutz und Offline-Funktionalität sind essenziell
+
+*Hindernisse/Frustrationen*:
+Misstrauisch gegenüber Tracking-Apps
+Ablehnung von Gamification („Spielerei“)
+Befürchtung, dass Apps echtes Nachdenken ersetzen
+Skepsis gegenüber datengetriebener Verhaltenslenkung
+
+*Akzeptanzkriterien*:
+App funktioniert komplett offline, ohne Registrierung oder Cloud-Anbindung.
+Keine Gamification-Elemente wie Punkte oder Badges.
+Nutzer:innen können Gewohnheiten in Form eines schlichten Journals erfassen.
+Lokale Daten können jederzeit exportiert oder gelöscht werden.
+App verwendet keine Tracker oder Analyse-Tools im Hintergrund.
+Minimalistisches, nicht ablenkendes Design (ohne Benachrichtigungen).
+Möchtest du für Thomas auch eine konkrete UI-Idee oder Wireframe-Skizze mitgestalten?
 
 == Nutzungskontext
 // Beschreiben Sie die Arbeitsaufgaben, Arbeitsmittel, physische und soziale Umgebung, in der das Produkt genutzt wird. 
