@@ -1,0 +1,128 @@
+= Meeting-Dokumentation
+
+Hier werden die vom Team gehaltenen Meetings kurz dokumentiert.
+
+= Weekly Meetings
+
+== Meeting 1 – 10.04.2025
+
+* Erstes Treffen des Teams
+* Erstellung einer WhatsApp-Gruppe
+* Erstellung eines Discord-Servers für weitere Meetings
+
+== Meeting 2 – 14.04.2025
+
+* Durchgehen der Aufgaben der ersten Iteration
+* Gemeinsames Brainstorming
+* Zusammentragen der Ideen (vorerst in Google Docs)
+
+== Meeting 3 – 21.04.2025
+
+* Meeting ausgefallen
+
+== Meeting 4 – 28.04.2025
+
+* Kurzes Catch-up
+* Erstes Arbeiten mit Miro
+* Besprechen der Scrum-Rollen
+
+Aufgaben:
+* Stakeholder-Personas erstellen
+* Stärken und Schwächen analysieren
+* Miro-Spaces für obige Themen erstellen und bis zum nächsten Mal bearbeiten
+
+== Meeting 5 – 05.05.2025
+
+* PDF zur 2. Iteration durchgegangen, Ablauf besprochen
+* Stakeholder in Miro fertiggestellt
+* Stärken/Schwächen in Miro dokumentiert
+* Scrum-Rollen final vergeben
+* Aufgabenstellung der 2. Iteration durchgegangen
+
+Zu erledigende Aufgaben:
+
+* Projekt-Template ins Repository einfügen
+* Brainstorming zu Features, die sich die Stakeholder wünschen
+* Einfügen der Stakeholder in `vision.adoc`
+* Selbstständiges Arbeiten mit den `.adoc`-Dateien
+* Backlog brainstormen und anlegen (ggf. im nächsten Meeting nach Feature-Zusammentragung)
+
+== Meeting 6 – 15.05.2025
+
+* Vervollständigen der `projektplan.adoc`
+* Product Owner: User Stories und Backlog anlegen
+* Meeting mit Nutzer:innen für nächste Woche vereinbaren
+
+== Meeting 7 – 19.05.2025
+
+* Erledigte Aufgaben besprochen
+* Meeting mit Nutzer:innen geplant (Zeit, Inhalt, Vorgehen)
+* Demo der Grundfunktionen erstellt
+* Notizen zur Vorstellung gemacht
+* Erstellung einer PowerPoint-Präsentation für die Vorstellung
+* C4-Modell (Schicht 1 und 2): Platz in Miro geschaffen
+* Weiterarbeit an den offenen Aufgaben
+
+
+== Meeting 8 - 25.05.2025
+
+* Meeting nach dem Coach Meeting
+* Bedarfe/Hauptfunktionen für VIsionsdokument besprochen
+* bessere Aufgabenaufteilung und mehr Issues in Zukunft
+** Ziel soll sein, dass jeder an einem Dokument arbeitet
+* Entwicklerteam: Projekt Infrastruktur genauer überlegen
+* PO: User Stories aus den besprochenen Bedarfen ableiten
+* kleine Änderungen an den Dokumenten vornehmen (Stakeholder bearbeiten/entfernen, Personas tauschen, Meeting Protokol-Dokument hinzufügen,..)
+
+
+
+= Sprint Review 
+
+== Meeting – 22.05.2025 (Teamübergreifendes Meeting)
+
+* Meeting mit anderem Team (3 Teilnehmer:innen)
+* Vorstellung des Projekts mittels PowerPoint-Präsentation
+* Stakeholder-Personas kurz vorgestellt
+* Features anhand der Web-Demo gezeigt und weitere genannt
+* Feedback vom anderen Team eingeholt:
+** Vorschläge:
+*** Achievement-System
+*** Sortierung nach Wichtigkeit und Tags
+*** Darstellung der Daily/Weekly-Abschlussrate
+* Weitere Feature-Ideen unsererseits:
+** Tagebuch-/Notizfunktion
+** Eventuell Gamification-Elemente
+* Rückfrage des anderen Teams:
+** Wie kommt die Abschlussrate in der Demo zustande?
+** Daraus entstandene Idee zur Daily/Weekly-Auswertung
+* Diskussion: Web-Anwendung oder auch als App?
+
+=== Interne Rückbesprechung im Anschluss
+
+* Gute Ideen erhalten
+* Weiterarbeit am Backlog
+* Demo wurde als sehr gelungen bewertet
+* Meeting mit Coach soll vereinbart werden
+
+=== Offene Fragen unsererseits
+
+* Sind wir im Zeitplan?
+* Was sind die konkreten Ziele/Ergebnisse, die am Ende der Iteration vorliegen sollen?
+
+= Coach Meetings
+
+== Coach Meeting – (26.05.2025)
+
+* Besprechung der Bedarfe und Funktionen im Visions-Dokument
+* Ableitung von User Stories → ggf. bereits erste Tasks definieren
+* Stakeholder-Nutzer anpassen, Käufer ggf. entfernen
+* Diskussion: Wer hostet? 
+** App oder Web-Anwendung?
+** Server-Infrastruktur?
+* Glossar parallel ergänzen
+* Personas überarbeiten/tauschen
+* Meeting-Protokoll-Datei ins Repository aufnehmen
+* Mehr Issues anlegen
+
+* Feedback: Hilfreiches Meeting, gute Hinweise 
+
