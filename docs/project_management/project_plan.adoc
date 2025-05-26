@@ -18,9 +18,9 @@ Das Projektteam besteht aus 7 Mitgliedern aus den Studiengängen Informatik und 
 * Scrum Master: Luisa Wehner
 ** Aufgaben: Organisation von Meetings, Team Kontakt und Teamarbeit nach Scrum-Prinzip
 
-* Project Owner: Victor Saeed
-** Aufgaben: 
- 
+* Product Owner: Victor Saeed
+** Aufgaben:Formulierung und Priorisierung der Backlog Items, Klärung fachlicher Anforderungen, Kommunikation mit Stakeholdern, Abnahme fertiggestellter Aufgaben
+
 * Entwicklerteam: Eric Hübel, Gabriel Wulkow,
                  Maurice Harnisch, Ahmad Alrmih und Marius Hoffmann
 ** Aufgaben: Umsetzung der im Sprint festgelegten Backlog Items (inkl. Design, Implementierung, Tests), Dokumentation der Software, Feedback an PO
