@@ -1,4 +1,4 @@
-# Vorlage Projektstruktur & Dokumente
+# VVorlage Projektstruktur & Dokumente
 
 Das Repository enthält die Vorlage einer Projektstruktur und Template-Dokumente
 im AsciiDoc-Format. Dies wird für die Bearbeitung der Belegarbeit in Software
