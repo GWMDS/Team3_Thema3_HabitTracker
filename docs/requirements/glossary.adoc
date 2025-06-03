@@ -66,11 +66,11 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | xx
 |===
 
-
 == Domänenmodell
-// // hier noch inkludieren.. error unbekannt
-// [plantuml, domänenmodell, svg]
-// ----
-// include::{plantumlsdir}/domaenenmodell.puml[]
-// ----
+[plantuml, "{diagramsdir}/syntax-example2",svg]
+....
+include::{plantumlsdir}/domaenenmodell.puml[]
+.... 
+ 
+ 
 
