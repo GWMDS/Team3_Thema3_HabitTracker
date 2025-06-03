@@ -1,0 +1,40 @@
+@startuml
+title Domänenmodell HabitTracker
+
+class User {
+  - userId : String
+  - name : String
+  - email : String
+  - zielsetzung : String
+}
+
+class Habit {
+  - habitId : String
+  - name : String
+  - beschreibung : String
+  - frequenz : String
+  - ziel : String
+  - status : String
+  - erstelltAm : Date
+  - letzteAktualisierung : Date
+}
+
+class HabitLog {
+  - logId : String
+  - datum : Date
+  - erfolg : Boolean
+  - notizen : String
+}
+
+class Category {
+  - categoryId : String
+  - name : String
+  - beschreibung : String
+}
+
+' Beziehungen
+User "1" -- "0..*" Habit : besitzt
+Habit "1" -- "0..*" HabitLog : hat
+Habit "0..*" -- "0..*" Category : gehört zu (viele-zu-viele)
+
+@enduml

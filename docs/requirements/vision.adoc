@@ -132,3 +132,14 @@ Hinweise:
 | Anforderung | Priorität | Geplantes Release
 | xx | xx | xx
 |===
+
+
+
+:plantumlsdir: diagrams
+
+== Domänenmodell
+hier noch inkludieren.. error unbekannt
+[plantuml, domänenmodell, svg]
+----
+include::{plantumlsdir}/domaenmodell.puml[]
+----

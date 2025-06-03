@@ -8,13 +8,36 @@ include::../_includes/default-attributes.inc.adoc[]
 == Einführung
 In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der <Projektthema-Systems> definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
 
-== Begriffe
+== Begriffe aus dem Habit Tracker Domainmodell
 [%header]
 |===
-| Begriff | Definition und Erläuterung | Synonyme
-//| Kommissionierung | Bereitstellung von Waren aus einem Lager entsprechend eines Kundenauftrags | (keine)
-| xx | xx | xx
+| Begriff | Synonyme / Verwandte Begriffe | Definition und Erläuterung
+
+| User
+| Benutzer, Nutzer, Account-Inhaber
+| Eine Person, die den Habit Tracker verwendet, um ihre Gewohnheiten zu verwalten und zu überwachen.
+
+| Habit
+| Gewohnheit, Routine, Habit (englisch), Zielhandlung
+| Eine spezifische Handlung oder Verhaltensweise, die der Nutzer regelmäßig ausführen möchte.
+
+| HabitLog
+| Eintrag, Tageslog, Fortschrittsnachweis, Erfolgseintrag
+| Ein Dokumentationseintrag, der die Durchführung einer Gewohnheit an einem Tag festhält, inklusive Erfolg oder Misserfolg.
+
+| Category
+| Kategorie, Themenbereich, Gruppe, Label
+| Eine Gruppierung oder Klassifikation von Gewohnheiten, z.B. Gesundheit, Fitness.
+
+| Beziehungen
+| Beziehungen, Assoziationen, Verbindungen
+| Beschreiben die Verknüpfungen zwischen den Entitäten:
+| - Benutzer besitzt Gewohnheiten
+| - Gewohnheit hat Log-Einträge
+| - Gewohnheit gehört zu Kategorien
 |===
+
+
 
 
 == Abkürzungen und Akronyme
@@ -43,5 +66,11 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | xx
 |===
 
+
 == Domänenmodell
-// Fügen Sie hier eine Abbildung mit ihrem Domänenmodell ein
+// // hier noch inkludieren.. error unbekannt
+// [plantuml, domänenmodell, svg]
+// ----
+// include::{plantumlsdir}/domaenenmodell.puml[]
+// ----
+
