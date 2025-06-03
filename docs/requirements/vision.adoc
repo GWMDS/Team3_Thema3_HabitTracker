@@ -110,12 +110,22 @@ Die Verfeinerung der Stakeholder, die das System benutzen, wird im UX-Konzept mi
 === Bedarfe und Hauptfunktionen
 //Vermeiden Sie Angaben zum Entwurf. Nennen wesentliche Features (Produktmerkmale) auf allgemeiner Ebene. Fokussieren Sie sich auf die benötigten Fähigkeiten des Systems und warum (nicht wie!) diese realisiert werden sollen. Geben Sie die von den Stakeholdern vorgegebenen Prioritäten an.
 
+
 [%header, cols="4,1,4,1"]
 |===
 | Bedarf | Priorität | Features / Funktionen | Geplantes Release
-| xx | xx | xx | xx
-|===
-
+| Nutzer wollen tägliche Gewohnheiten verfolgen. | Hoch | Tägliches Abhaken von Gewohnheiten | Version 1.0
+| Nutzer möchten an ihre Gewohnheiten erinnert werden. | Mittel | Push-Benachrichtigungen/Reminder | Version 1.1
+| Nutzer wollen sehen, wie konsequent sie sind. | Hoch | Statistiken & Streak-Tracking | Version 1.2
+| Nutzer möchten ihre eigenen Gewohnheiten anlegen. | Hoch | Eigene Habits erstellen & bearbeiten | Version 1.0
+| Nutzer wollen motiviert bleiben. | Niedrig | Belohnungssystem / Level-Ups | Version 1.3
+| Nutzer wollen mehrere Gewohnheiten gleichzeitig verwalten. | Hoch | Übersicht über mehrere parallele Habits | Version 1.0
+| Nutzer möchten Gewohnheiten kategorisieren. | Mittel | Kategorien oder Tags für Habits | Version 1.2
+| Nutzer möchten ihre Fortschritte visualisiert sehen. | Mittel | Diagramme und Fortschrittsbalken | Version 1.2
+| Nutzer wollen flexibel mit Zeiträumen umgehen. | Mittel | Wöchentliche und monatliche Ziele | Version 1.3
+| Nutzer möchten die App individuell anpassen können. | Niedrig | Theme-Auswahl (Hell/Dunkel etc.) | Version 1.4
+| Nutzer wollen durch Challenges motiviert werden. | Niedrig | Habit-Challenges (z.B. 21-Tage-Challenge) | Version 1.5
+|=== 
 
 === Zusätzliche Produktanforderungen
 //Zutreffendes angeben, nicht zutreffendes streichen oder auskommentieren
