@@ -1,0 +1,14 @@
+!include <c4/C4_Context.puml>
+
+'ref http://plantuml.com/stdlib
+!include <office/Users/user.puml>
+!include <office/Users/mobile_user.puml>
+
+title Kontextdiagramm für HTW Prüfungsvorbereiter
+
+Person(user, "Benutzer", "Person, die Habits an- oder abgewöhnen oder monitoren will")
+
+System(tracker, "Habit Tracker", "Ermöglicht es den Nutzern, neue Habits anzulegen und diese zu tracken; Ermöglicht es, diese Habits zu klassifizieren und Ziele zu setzen")
+
+Rel(user, tracker, "gibt Daten über längeren Zeitraum in System ein")
+Rel(tracker,user,"verwaltet Daten und gibt übersichtliche Zusammenfassing wider")

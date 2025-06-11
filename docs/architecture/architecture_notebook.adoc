@@ -57,12 +57,15 @@ Kritische Fragen:
 === Kontextabgrenzung
 [plantuml, "{diagramsdir}/c4", svg]
 ....
-include::{plantumlsdir}/c4.puml[]
+include::{plantumlsdir}/context.puml[]
 ....
 
 === Container
 //Level 2 im C4-Modell
-
+[plantuml, "{diagramsdir}/c4", svg]
+....
+include::{plantumlsdir}/container.puml[]
+....
 === Components
 //Level 3 im C4-Modell
 

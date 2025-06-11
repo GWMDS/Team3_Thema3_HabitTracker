@@ -1,0 +1,22 @@
+!include <c4/C4_Container.puml>
+
+'ref http://plantuml.com/stdlib
+!include <office/Users/user.puml>
+!include <office/Users/mobile_user.puml>
+
+title Containerschema für Habit Tracker
+
+Person(user, "Benutzer", "Person, die Habits an- oder abgewöhnen oder monitoren will")
+
+System_Boundary(tracker1, "Habit Tracker") {
+    Container(web, "Web App", "Vue.JS", "Front Web Page für die Benutzer, ermöglicht Interaktion mit dem System - Benutzeroberfläche")
+    ContainerDb(database, "Datenbank", "", "speichert Habits, zusammen mit Daten wie Datum, Nutzer...")
+    Container(api, "Schnittstelle", "", "Schnittstelle zwischen Web-Page und Datenbank")
+}
+
+Rel(user, web, "trägt Habit ein, legt neue Habits an, lässt Statistiken erstellen")
+
+
+Rel(web, api, "nutzt", "JSON/HTTP")
+Rel_Back_Neighbor(database, api, "Anfragen", "")
+Rel_Neighbor(database, api, "Daten","")
