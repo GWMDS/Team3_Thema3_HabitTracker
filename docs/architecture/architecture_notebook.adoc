@@ -32,8 +32,11 @@ Kritische Fragen:
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
 - Zielsystem hat einen modernen Browser (Firefox, Chrome, Safari) und Internetverbindung
 - Teammitglieder besitzen grundlegende Kenntnisse in Webprogrammierung (HTML, CSS, Javascript)
-- möglicherweise Einsatz von Vue.js, React, ... als Frontend-Framework für PWA?
-- möglicherweise Einsatz von Node.js, Flask, ... als Backend-Framework (optional, je nach Bedarf für Datenpersistenz oder APIs)
+- Einsatz von Vue.js als Frontend-Framework für SPA, da dort am meisten Erfahrung des Entwicklerteams vorliegt
+- Einsatz von Node.js als Backend-Framework da dies bereits im Studium benutzt wurde (optional, je nach Bedarf für Datenpersistenz oder APIs)
+- als CLI empfhielt sich die Node.js CLI oder Vite
+- Datenspeciherung im beginn erstmal nur mit JSON Dateien und express.js
+
 
 
 == Architektur-relevante Anforderungen
