@@ -41,17 +41,39 @@ Kritische Fragen:
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
-
+- [ ] Responsives Design für alle Endgeräte
+- [ ] Offline-Verfügbarkeit über Service Worker
+- [ ] REST-API zur Datenübertragung zwischen Frontend und Backend
+- [ ] Lesende und schreibende Speicherung von Daten (zunächst JSON, später DB)
+- [ ] Einfache Deployment-Möglichkeit (z. B. auf Render, Vercel, o.ä.)
 
 == Entscheidungen, Nebenbedingungen und Begründungen
 //[List the decisions that have been made regarding architectural approaches and the constraints being placed on the way that the developers build the system. These will serve as guidelines for defining architecturally significant parts of the system. Justify each decision or constraint so that developers understand the importance of building the system according to the context created by those decisions and constraints. This may include a list of DOs and DON’Ts to guide the developers in building the system.]
 
-. Entscheidung oder Einschränkung oder Begründung 1
-. Entscheidung oder Einschränkung oder Begründung 2
+. *Frontend mit Vue.js*: Moderne, komponentenbasierte Entwicklung; im Team bekannt.
+. *Backend mit Node.js + Express*: Einfache API-Erstellung, Erfahrung im Studium vorhanden.
+. *JSON-Dateien für persistente Daten*: Schnell implementierbar ohne zusätzliche Infrastruktur.
+. *Verzicht auf Datenbank in der ersten Version*: Fokus auf MVP; Erweiterung später möglich.
+. *Vite als Build-Tool*: Schnell, modern, gut integriert mit Vue 3.
+. *REST-Architektur*: Klare Trennung von Zuständigkeiten; leicht testbar und wartbar.
+. *Service Worker*: Für Offline-Unterstützung über das PWA-Konzept.
 
 
 == Schichten oder Architektur-Framework
-//[Describe the architectural pattern that you will use or how the architecture will be consistent and uniform. This could be a simple reference to an existing or well-known architectural pattern, such as the Layer framework, a reference to a high-level model of the framework, or a description of how the major system components should be put together.]
+Wir verwenden eine klassische 3-Schichten-Architektur:
+
+1. **Präsentationsschicht (Client/PWA)**  
+   - Vue.js SPA  
+   - Kommunikation über HTTP mit REST-API  
+   - Service Worker für Offline-Funktionalität  
+
+2. **Logikschicht (Backend/API)**  
+   - Node.js + Express  
+   - REST-Endpoints zum Lesen/Schreiben von Daten  
+
+3. **Datenhaltungsschicht**  
+   - JSON-Dateien im Dateisystem (zunächst)  
+   - Option für spätere Migration zu MongoDB oder SQLite  
 
 
 == Architektursichten (Views)
