@@ -1,5 +1,5 @@
 = Glossar: {project-name}
-Ahmad Alrmih <s86396@htw-dresden.de>; Maurice Harnisch <s87128@htw-dresden.de>; Marius Hoffmann <s86306@htw-dresden.de>; Eric Hübel <s86462@htw-dresden.de>; Victor Saeed <s87082@htw-dresden.de>; Luisa Wehner <s87064@htw-dresden.de>; Gabriel Wulkow Moreira da Silva <s87063@htw-dresden.de>;
+Ahmad Alrmiha <s86396@htw-dresden.de>; Maurice Harnisch <s87128@htw-dresden.de>; Marius Hoffmann <s86306@htw-dresden.de>; Eric Hübel <s86462@htw-dresden.de>; Victor Saeed <s87082@htw-dresden.de>; Luisa Wehner <s87064@htw-dresden.de>; Gabriel Wulkow Moreira da Silva <s87063@htw-dresden.de>;
 {localdatetime}
 include::../_includes/default-attributes.inc.adoc[]
 // Platzhalter für weitere Dokumenten-Attribute
