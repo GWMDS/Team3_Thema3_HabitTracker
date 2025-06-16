@@ -82,23 +82,16 @@ a| * verständlichen, gut lesbaren, kommentierten Code schreiben
    * möglicherweise an Style Guides halten
    * Git-Commits mit kurzer, aber klarer Nachricht und optionaler Beschreibung
    * Einhaltung von Deadlines
-|Schulungspersonal
-|gibt es nur bedingt, da die Anwendung für einzelpersonen gedacht ist
-a| * einfach verständliches UI
-   * kurze Einführung in App
-|Gruppe von Nutzern
+
+|Nutzer
 |Personen die, die App letztendlich Nutzen werden
 a|* Feedback zur Usability geben
-  * Regelmäßige Nutzung der App sicherstellen
-  * Bedürfnisse und Anforderungen als Grundlage für Weiterentwicklungen liefern
+  * Regelmäßige Nutzung der App im Alltag
+  * Formulierung von Wünschen, Bedürfnissen und Anforderungen für die Weiterentwicklung
 |Produktgegner
 |Personen, die vom Produkt noch nicht überzeugt sind
 a| * Kritikpunkte äußern, die als Grundlage für Verbesserungen dienen können
    * Ziel von Marketing- und Überzeugungsmaßnahmen
-|Käufer des Systems
-|Entscheidungsträger, die über die Anschaffung oder Finanzierung entscheiden
-a| * vom Nutzen und der Rentabilität überzeugt werden
-   * Anforderungen hinsichtlich Wirtschaftlichkeit, Skalierbarkeit und ROI formulieren
 
 |===
 
