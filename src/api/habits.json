@@ -1,0 +1,16 @@
+{
+    "1":{
+        "name": "SSIO",
+        "habits":{
+            "1":"Mehr Geld verdienen",
+            "2":"Noch mehr Para machen"
+        }
+    },
+    "2":{
+        "name":"Anke Jürgens",
+        "habits":{
+            "1":"Mehr selber Kochen",
+            "2":"Jeden Tag 10000 Schritte machen"
+        }
+    }
+}
