@@ -6,46 +6,117 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Einführung
-In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) der <Projektthema-Systems> definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
+In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fachdomäne) des *Habit-Tracker-Systems* definiert. Zur besseren Übersichtlichkeit sind Begriffe, Abkürzungen und Datendefinitionen gesondert aufgeführt.
 
 == Begriffe aus dem Habit Tracker Domainmodell
 [%header]
 |===
 | Begriff | Synonyme / Verwandte Begriffe | Definition und Erläuterung
 
-| User
-| Benutzer, Nutzer, Account-Inhaber
-| Eine Person, die den Habit Tracker verwendet, um ihre Gewohnheiten zu verwalten und zu überwachen.
+| Backend
+| Server, Datenverarbeitung
+| Teil der Software, der serverseitige Logik, Datenverarbeitung und Schnittstellen umfasst.
+
+| Backend-Framework
+| Server-Framework
+| Entwicklungswerkzeug für serverseitige Logik und APIs (z. B. Node.js, Django).
+
+| Belohnungssystem / Level-Ups
+| Gamification, Fortschrittssystem
+| Motivationsmechanismen, die z. B. Punkte, Abzeichen oder Levelanstiege für konsequente Nutzung vergeben.
+
+| Browser
+| Webbrowser
+| Software zur Darstellung und Interaktion mit Webseiten.
+
+| Category
+| Kategorie, Themenbereich, Gruppe, Label
+| Eine Gruppierung oder Klassifikation von Gewohnheiten, z.B. Gesundheit, Fitness.
+
+| CLI
+| Kommandozeileninterface
+| Textbasiertes Benutzerinterface zur Steuerung von Entwicklungswerkzeugen oder Anwendungen.
+
+| Clientseitiges Arbeiten
+| Frontend-Verarbeitung
+| Prozesse und Logik, die im Webbrowser oder auf dem Endgerät des Nutzers ausgeführt werden.
+
+| Beziehungen
+| Beziehungen, Assoziationen, Verbindungen
+| Beschreiben die Verknüpfungen zwischen den Entitäten:
+- Benutzer besitzt Gewohnheiten
+- Gewohnheit hat Log-Einträge
+- Gewohnheit gehört zu Kategorien
+
+| Externe APIs
+| Drittanbieter-Schnittstellen
+| Programmierschnittstellen, die von externen Diensten bereitgestellt werden und z. B. zur Integration genutzt werden.
+
+| Frontend-Framework
+| UI-Framework
+| Entwicklungswerkzeug zur Erstellung von Benutzeroberflächen (z. B. React, Vue.js).
 
 | Habit
-| Gewohnheit, Routine, Habit (englisch), Zielhandlung
+| Gewohnheit, Routine, Zielhandlung
 | Eine spezifische Handlung oder Verhaltensweise, die der Nutzer regelmäßig ausführen möchte.
 
 | HabitLog
 | Eintrag, Tageslog, Fortschrittsnachweis, Erfolgseintrag
 | Ein Dokumentationseintrag, der die Durchführung einer Gewohnheit an einem Tag festhält, inklusive Erfolg oder Misserfolg.
 
-| Category
-| Kategorie, Themenbereich, Gruppe, Label
-| Eine Gruppierung oder Klassifikation von Gewohnheiten, z.B. Gesundheit, Fitness.
+| Homescreen
+| Startbildschirm
+| Der Hauptbildschirm eines mobilen Geräts, auf dem Apps als Icons abgelegt werden können.
 
-| Beziehungen
-| Beziehungen, Assoziationen, Verbindungen
-| Beschreiben die Verknüpfungen zwischen den Entitäten:
-| - Benutzer besitzt Gewohnheiten
-| - Gewohnheit hat Log-Einträge
-| - Gewohnheit gehört zu Kategorien
+| Icon
+| App-Symbol
+| Grafische Darstellung zur Identifikation der Anwendung, z. B. auf dem Homescreen.
+
+| Progressive Web App (PWA)
+| PWA
+| Eine Webanwendung, die sich wie eine native App verhält und auf Mobilgeräten installiert werden kann.
+
+| Push-Benachrichtigungen / Reminder
+| Erinnerungen
+| Benachrichtigungen, die den Nutzer an geplante oder fällige Gewohnheiten erinnern.
+
+| Responsive Design
+| Reaktionsfähiges Design
+| Gestaltung von Benutzeroberflächen, die sich flexibel an unterschiedliche Bildschirmgrößen und Geräte anpasst.
+
+| Service-Worker
+| -
+| Ein Skript, das im Hintergrund läuft, unabhängig von der Webseite, z. B. zur Zwischenspeicherung von Daten oder für Offline-Funktionalitäten.
+
+| Statistiken & Streak-Tracking
+| Fortschrittsanzeige, Serien
+| Darstellung der Leistung des Nutzers über Zeit hinweg, z. B. wie oft eine Gewohnheit ohne Unterbrechung durchgeführt wurde.
+
+| Tags
+| Schlagworte, Etiketten
+| Frei vergebbare Begriffe zur Klassifikation und Filterung von Gewohnheiten oder Logs.
+
+| User
+| Benutzer, Nutzer, Account-Inhaber
+| Eine Person, die den Habit Tracker verwendet, um ihre Gewohnheiten zu verwalten und zu überwachen.
+
+| User Story
+| Nutzeranforderung
+| Beschreibung einer Funktionalität aus Sicht des Endnutzers (z. B. „Als Nutzer möchte ich…“).
 |===
-
-
-
 
 == Abkürzungen und Akronyme
 [%header]
 |===
 | Abkürzung | Bedeutung | Erläuterung
-//| UP | Unified Process | Vorgehensmodell für die Softwareentwicklung
-| xx | xx | xx
+
+| API | Application Programming Interface | Programmierschnittstelle zur Anbindung externer Dienste
+| CLI | Command Line Interface | Textbasiertes Steuerungswerkzeug für Programme
+| DB | Datenbank | Zentrales System zur strukturierten Speicherung von Daten
+| MVP | Minimum Viable Product | Minimale Version eines Produkts zur schnellen Markteinführung
+| PWA | Progressive Web App | Webanwendung mit App-ähnlichem Verhalten und Offline-Fähigkeit
+| UI | User Interface | Benutzeroberfläche
+| UX | User Experience | Nutzererlebnis
 |===
 
 == Verzeichnis der Datenstrukturen
@@ -59,12 +130,44 @@ In diesem Dokument werden die wesentlichen Begriffe aus dem Anwendungsgebiet (Fa
 | Emailadresse muss `@`-Zeichen und `.` Punkt enthalten.
 | Login
 
-| xx
-| xx
-| xx
-| xx
-| xx
+| Benutzerprofil
+| Stammdaten eines Nutzers
+| JSON / Objekt
+| Pflichtfelder: Nutzername, E-Mail, eindeutige ID
+| UserInfo, Profil
+
+| Habit
+| Einzelne Gewohnheit eines Nutzers
+| JSON / Objekt
+| Name (min. 3 Zeichen), Wiederholungsmuster
+| Gewohnheit
+
+| HabitLog
+| Ausgeführte Handlungseinträge pro Tag
+| JSON / Liste
+| Datum erforderlich, Verweis auf Habit-ID
+| Log, Tageslog
+
+| Kategorie
+| Gruppierung von Habits
+| String / Objekt
+| Muss eindeutig benannt sein
+| Thema, Label
+
+| Statistikdaten
+| Kennzahlen zur Gewohnheitserfüllung
+| Zahlenwerte / JSON
+| Nur lesbar, basiert auf Logs
+| Fortschritt
+
+| Tag
+| Schlagwort zur Habit-Organisation
+| String
+| Freie Eingabe, optional
+| Label, Etikett
 |===
+
+
 
 
 
