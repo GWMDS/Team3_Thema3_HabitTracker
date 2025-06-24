@@ -1,19 +1,109 @@
 <template>
-  <main class="form-page">
-    <h2>Neue Gewohnheit erstellen</h2>
-    <input v-model="enteredName" placeholder="Name" />
-    <textarea v-model="enteredDescription" placeholder="Beschreibung (optional)"></textarea>
-    <select v-model="selectedCategory">
-      <option disabled value="">Kategorie wählen</option>
-      <option>Gesundheit</option>
-      <option>Produktivität</option>
-      <option>Lernen</option>
-      <option>Achtsamkeit</option>
-      <option>Sonstiges</option>
-    </select>
-    <button @click="saveHabit">Speichern</button>
-  </main>
+  <v-app>      
+    <br>
+    <hr><br>
+
+    <!-- Hauptinhalt -->
+    <v-main>
+      <v-container class="text-center">
+        <v-text-field 
+          label="Name"
+          v-model="enteredName"
+        ></v-text-field>
+        <v-textarea 
+          label="Beschreibung (optional)"
+          v-model="enteredDescription"
+        ></v-textarea>
+
+        <v-select
+          v-model="selectedOccurrence"
+          label="Häufigkeit"
+          :items="['Täglich', 'Wöchentlich', 'Monatlichlich', 'Benutzerdefiniert']"
+        ></v-select>
+
+        <v-row
+          v-if="selectedOccurrence === 'Benutzerdefiniert'"
+          justify="center"
+        ><v-checkbox
+          v-for="day in days"
+          :key="day"
+          v-model="selectedDays"
+          :label="day"
+          :value="day"
+          density="compact"
+        ></v-checkbox>
+        </v-row>
+
+        <v-select
+        v-model="selectedCategory"
+          label="Kategorie"
+          :items="['Gesundheit', 'Produktivität', 'Lernen', 'Achtsamkeit', 'Sonstiges']"
+        ></v-select>
+        
+        <v-combobox
+          v-model="selectedTags"
+          :items="tags"
+          label="Tags"
+          chips
+          multiple
+          clearable
+        ></v-combobox>
+        <v-btn id="save-btn" color="primary" @click="handleClick('save')">Speichern</v-btn>
+      </v-container>
+    </v-main>
+
+    <!-- Dialog -->
+    <v-dialog v-model="dialog" max-width="400">
+      <v-card>
+        <v-card-title class="text-h6">Eingegeben:</v-card-title>
+        <v-container class="text-left">
+          <p><b>Name: </b>{{ enteredName }}</p>
+          <p><b>Beschreibung: </b>{{ enteredDescription }}</p>
+          <p><b>Häufigkeit: </b>{{ selectedOccurrence }}</p>
+          <p><b>Wochentage: </b>{{ selectedDays }}</p>
+          <p><b>Kategorie: </b>{{ selectedCategory }}</p>
+          <p><b>Tags: </b>{{ selectedTags }}</p>
+        </v-container>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="dialog = false">Schließen</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-app>
+
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+
+const enteredName = ref([])
+const enteredDescription = ref([])
+const selectedDays = ref([])
+const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
+const selectedCategory = ref([])
+const selectedOccurrence = ref([])
+const selectedTags = ref([])
+
+const dialog = ref(false)
+
+const tags = [
+  'Sport',
+  'Laufen',
+  'Lesen',
+  'Meditation',
+  'Programmieren',
+  'Freunde treffen',
+  'Wasser trinken',
+  'Früh aufstehen',
+  'Kein Social Media',
+  'Aufräumen',
+  'Dankbarkeit',
+];
+</script>
 
 <script>
 export default {
@@ -53,29 +143,7 @@ export default {
 </script>
 
 <style>
-.form-page {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: #f0f0f0;
-  border-radius: 8px;
-}
-.form-page input,
-.form-page textarea,
-.form-page select {
-  padding: 0.5rem;
-  font-size: 1rem;
-}
-.form-page button {
-  padding: 0.5rem;
-  font-size: 1rem;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+body {
+  font-family: Roboto, sans-serif;
 }
 </style>

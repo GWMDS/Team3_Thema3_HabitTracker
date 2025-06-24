@@ -1,5 +1,23 @@
 <template>
-  <div>
+  <v-app>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="onMenuClick"></v-app-bar-nav-icon>
+      <v-app-bar-title>Habit Tracker</v-app-bar-title>
+      <v-btn @click="$router.push('/')">Heute</v-btn>
+      <v-btn @click="$router.push('/statistik')">Statistik</v-btn>
+      <v-btn @click="$router.push('/Profil')">Profil</v-btn>
+      <v-btn id="theme-btn" color="primary" @click="changeTheme">
+        <v-icon size="24">mdi-theme-light-dark</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  
+    <!--
     <header>
       <h1>Habit Tracker</h1>
       <nav>
@@ -8,9 +26,24 @@
         <button @click="$router.push('/Profil')">Profil</button>
       </nav>
     </header>
-    <router-view></router-view>
-  </div>
+    -->
+  </v-app>
 </template>
+
+<script setup>
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+
+function changeTheme(){
+  if (theme.global.name.value === "dark"){
+      theme.global.name.value = "light"
+  }
+  else {
+      theme.global.name.value = "dark"
+  }
+}
+</script>
 
 <script>
 export default { name: 'App' };
