@@ -48,7 +48,7 @@
           multiple
           clearable
         ></v-combobox>
-        <v-btn id="save-btn" color="primary" @click="handleClick('save')">Speichern</v-btn>
+        <v-btn id="save-btn" color="primary" @click="showDialog">Speichern</v-btn>
       </v-container>
     </v-main>
 
@@ -71,25 +71,29 @@
       </v-card>
     </v-dialog>
   </v-app>
-
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useTheme } from 'vuetify'
+import { useRouter } from 'vue-router'
 
 const theme = useTheme()
+const router = useRouter()
 
-const enteredName = ref([])
-const enteredDescription = ref([])
+// Form-Daten
+const enteredName = ref('')
+const enteredDescription = ref('')
 const selectedDays = ref([])
-const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
-const selectedCategory = ref([])
-const selectedOccurrence = ref([])
+const selectedCategory = ref('')
+const selectedOccurrence = ref('')
 const selectedTags = ref([])
 
+// UI-Zustand
 const dialog = ref(false)
 
+// Optionen
+const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
 const tags = [
   'Sport',
   'Laufen',
@@ -102,44 +106,38 @@ const tags = [
   'Kein Social Media',
   'Aufräumen',
   'Dankbarkeit',
-];
-</script>
+]
 
-<script>
-export default {
-  name: 'Erstellen',
-  data() {
-    return {
-      enteredName: '',
-      enteredDescription: '',
-      selectedCategory: '',
-    };
-  },
-  methods: {
-    saveHabit() {
-      fetch('http://localhost:3000/api/habits')
-        .then(res => res.json())
-        .then(data => {
-          const newId = data.length > 0 ? Math.max(...data.map(h => h.id)) + 1 : 1;
-          const newHabit = {
-            id: newId,
-            name: this.enteredName,
-            description: this.enteredDescription,
-            category: this.selectedCategory,
-            done: false,
-            completions: 0,
-            streak: 0
-          };
-          const updated = [...data, newHabit];
-          fetch('http://localhost:3000/api/habits', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updated),
-          }).then(() => this.$router.push('/'));
-        });
-    },
-  },
-};
+// Methoden
+function showDialog() {
+  console.log("Speicherbutton wurde geklickt!")
+  dialog.value = true
+  saveHabit()
+}
+
+function saveHabit() {
+  // TODO überarbeiten
+  fetch('http://localhost:3000/api/habits')
+    .then(res => res.json())
+    .then(data => {
+      const newId = data.length > 0 ? Math.max(...data.map(h => h.id)) + 1 : 1
+      const newHabit = {
+        id: newId,
+        name: enteredName.value,
+        description: enteredDescription.value,
+        category: selectedCategory.value,
+        done: false,
+        completions: 0,
+        streak: 0
+      }
+      const updated = [...data, newHabit]
+      fetch('http://localhost:3000/api/habits', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updated),
+      }).then(() => router.push('/'))
+    })
+}
 </script>
 
 <style>
