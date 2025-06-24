@@ -128,7 +128,11 @@ function saveHabit() {
         category: selectedCategory.value,
         done: false,
         completions: 0,
-        streak: 0
+        streak: 0,
+        occurence: selectedOccurrence.value,
+        occurenceopt: selectedDays.value,
+        tags: selectedTags.value
+
       }
       const updated = [...data, newHabit]
       fetch('http://localhost:3000/api/habits', {

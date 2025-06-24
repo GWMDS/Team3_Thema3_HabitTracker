@@ -1,45 +1,178 @@
 <template>
-  <main>
-    <section class="overview">
-      <div>Gewählte Ansicht: {{ selectedDate }}</div>
-      <div>Gewohnheiten Heute: {{ habits.length }}</div>
-      <div>Abgeschlossen: {{ completedToday }}</div>
-      <div>Ø Abschlussrate: {{ averageRate }}%</div>
-    </section>
+  <v-main>
+    <v-container>
+      <!-- Übersicht -->
+      <v-row class="mb-6" dense>
+        <v-col cols="12" md="3">
+          <v-card class="pa-3" outlined>
+            <div>Gewählte Ansicht:</div>
+            <strong>{{ selectedDate }}</strong>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="3">
+          <v-card class="pa-3" outlined>
+            <div>Gewohnheiten heute:</div>
+            <strong>{{ habits.length }}</strong>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="3">
+          <v-card class="pa-3" outlined>
+            <div>Abgeschlossen:</div>
+            <strong>{{ completedToday }}</strong>
+          </v-card>
+        </v-col>
+        <v-col cols="12" md="3">
+          <v-card class="pa-3" outlined>
+            <div>Ø Abschlussrate:</div>
+            <strong>{{ averageRate }}%</strong>
+          </v-card>
+        </v-col>
+      </v-row>
 
-    <section class="calendar-buttons">
-      <button
-        v-for="(day, index) in lastFiveDays"
-        :key="day.date"
-        @click="selectDate(day.date)"
-        :class="{ active: day.date === selectedDate }"
-      >
-        <div>{{ day.weekday }}</div>
-        <div>{{ day.formattedDate }}</div>
-      </button>
-    </section>
+      <!-- Kalender Buttons -->
+      <v-row class="mb-4" justify="center">
+        <v-btn
+          v-for="(day, index) in lastFiveDays"
+          :key="day.date"
+          @click="selectDate(day.date)"
+          :color="day.date === selectedDate ? 'primary' : 'grey lighten-2'"
+          class="ma-1"
+        >
+          <div class="text-center">
+            <div class="font-weight-bold">{{ day.weekday }}</div>
+            <div>{{ day.formattedDate }}</div>
+          </div>
+        </v-btn>
+      </v-row>
 
-    <section class="habits">
-      <h2>Gewohnheiten für {{ selectedDate }}</h2>
-      <button @click="$router.push('/erstellen')" class="menu-btn">Neuen Habit erstellen</button>
-      <ul>
-        <li v-for="habit in habits" :key="habit.id">
-          <label :class="{ disabled: !isEditable }">
-            <input
-              type="checkbox"
-              :checked="getStatus(habit)"
-              :disabled="!isEditable"
-              @change="toggleHabit(habit, $event.target.checked)"
-            />
-            {{ habit.name }} <span v-if="habit.streak">🔥 {{ habit.streak }}</span> <br>
-            Beschreibung: {{ habit.description }} <br>
-            Kategorie: {{ habit.category }}
-          </label>
-          <button @click="deleteHabit(habit.id)" :disabled="!isEditable" class="del-btn">🗑️</button>
-        </li>
-      </ul>
-    </section>
-  </main>
+      <!-- Filter & Suche -->
+      <v-row class="mb-4" align="center">
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="searchTerm"
+            label="Suche nach Name oder Tags"
+            clearable
+            outlined
+            dense
+          />
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-select
+            v-model="selectedCategory"
+            :items="allCategories"
+            label="Kategorie filtern"
+            clearable
+            outlined
+            dense
+          />
+        </v-col>
+        <v-col cols="12" md="2">
+          <v-btn
+            outlined
+            dense
+            text
+            block
+            color="primary"
+            rounded
+            @click="$router.push('/erstellen')"
+          >
+            Habit erstellen
+          </v-btn>
+        </v-col>
+      </v-row>
+
+      <!-- Habits mit Border & Checkbox vorne, nur Vuetify Styling -->
+      <v-row>
+        <v-col cols="12" md="8" offset-md="2">
+          <v-hover v-slot="{ hover }" v-for="habit in filteredHabits" :key="habit.id" class="mb-3">
+            <v-card
+              outlined
+              rounded
+              :elevation="hover ? 6 : 2"
+              class="pa-4"
+            >
+              <div
+                class="habit-header d-flex justify-space-between align-center cursor-pointer"
+                @click="togglePanel(habit.id)"
+              >
+                <div class="d-flex align-center">
+                  <v-checkbox
+                    class="mr-2"
+                    :input-value="getStatus(habit)"
+                    :disabled="!isEditable"
+                    @change.stop="toggleHabit(habit, $event)"
+                    @click.stop
+                    hide-details
+                  />
+                  <strong class="text-subtitle-1">{{ habit.name }}</strong>
+                  <v-chip
+                    class="ml-3"
+                    small
+                    color="primary"
+                    text-color="white"
+                    label
+                  >
+                    {{ habit.category }}
+                  </v-chip>
+                </div>
+
+                <div class="text-subtitle-2">
+                  🔥 Streak: <strong>{{ habit.streak || 0 }}</strong> Tage
+                  <v-icon small class="ml-2">
+                    {{ openedPanels.includes(habit.id) ? "mdi-chevron-up" : "mdi-chevron-down" }}
+                  </v-icon>
+                </div>
+              </div>
+
+              <v-expand-transition>
+                <div
+                  v-show="openedPanels.includes(habit.id)"
+                  class="pl-10 text-body-2 text--secondary mt-3"
+                >
+                  <p><strong>Beschreibung:</strong> {{ habit.description || "Keine Beschreibung" }}</p>
+                  <p>
+                    <strong>Tags:</strong>
+                    <span v-if="habit.tags && habit.tags.length">
+                      <v-chip
+                        v-for="(tag, index) in parsedTags(habit.tags)"
+                        :key="index"
+                        class="ma-1"
+                        small
+                        color="secondary"
+                        text-color="white"
+                        label
+                      >
+                        {{ tag }}
+                      </v-chip>
+                    </span>
+                    <span v-else>Keine Tags</span>
+                  </p>
+                  <v-row justify="space-between" align="center">
+                    <v-col cols="auto" class="text-right">
+                      <v-btn
+                        icon
+                        color="error"
+                        small
+                        @click.stop="deleteHabit(habit.id)"
+                        :disabled="!isEditable"
+                        title="Habit löschen"
+                      >
+                        <v-icon small>mdi-delete</v-icon>
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </div>
+              </v-expand-transition>
+            </v-card>
+          </v-hover>
+
+          <div v-if="filteredHabits.length === 0" class="text-center grey--text">
+            Keine Habits gefunden.
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-main>
 </template>
 
 <script>
@@ -50,6 +183,9 @@ export default {
       habits: [],
       selectedDate: new Date().toISOString().split("T")[0],
       todayDate: new Date().toISOString().split("T")[0],
+      searchTerm: "",
+      selectedCategory: null,
+      openedPanels: [], // Offene Habit-IDs
     };
   },
   computed: {
@@ -81,10 +217,46 @@ export default {
       }
       return days;
     },
+    allCategories() {
+      const cats = this.habits
+        .map((h) => h.category)
+        .filter((c) => c && c.trim() !== "")
+        .filter((v, i, a) => a.indexOf(v) === i)
+        .sort();
+      return cats;
+    },
+    filteredHabits() {
+      const searchLower = this.searchTerm.toLowerCase().trim();
+
+      return this.habits.filter((habit) => {
+        const matchesCategory = this.selectedCategory
+          ? habit.category === this.selectedCategory
+          : true;
+
+        const tagsArray = habit.tags
+          ? habit.tags.toString().toLowerCase().split(",").map((t) => t.trim())
+          : [];
+
+        const matchesSearch =
+          !searchLower ||
+          habit.name.toLowerCase().includes(searchLower) ||
+          tagsArray.some((tag) => tag.includes(searchLower));
+
+        return matchesCategory && matchesSearch;
+      });
+    },
   },
   methods: {
     selectDate(date) {
       this.selectedDate = date;
+    },
+    togglePanel(habitId) {
+      const idx = this.openedPanels.indexOf(habitId);
+      if (idx > -1) {
+        this.openedPanels.splice(idx, 1);
+      } else {
+        this.openedPanels.push(habitId);
+      }
     },
     getStatus(habit) {
       return habit.entries?.[this.selectedDate]?.done || false;
@@ -93,20 +265,22 @@ export default {
       if (!this.isEditable) return;
 
       if (!habit.entries) habit.entries = {};
-      habit.entries[this.selectedDate] = { done: isChecked };
 
-      // completions neu berechnen
-      habit.completions = Object.values(habit.entries).filter(e => e.done).length;
+      if (isChecked) {
+        habit.entries[this.selectedDate] = { done: true };
+      } else {
+        delete habit.entries[this.selectedDate];
+      }
 
+      habit.completions = Object.values(habit.entries).filter((e) => e.done).length;
       this.recalculateStreak(habit);
       this.saveHabits();
     },
     recalculateStreak(habit) {
       let streak = 0;
       let currentDate = new Date(this.selectedDate);
-
       while (true) {
-        const dateStr = currentDate.toISOString().split('T')[0];
+        const dateStr = currentDate.toISOString().split("T")[0];
         if (habit.entries?.[dateStr]?.done) {
           streak++;
           currentDate.setDate(currentDate.getDate() - 1);
@@ -114,8 +288,12 @@ export default {
           break;
         }
       }
-
       habit.streak = streak;
+    },
+    parsedTags(tags) {
+      if (!tags) return [];
+      if (Array.isArray(tags)) return tags;
+      return tags.toString().split(",").map((t) => t.trim());
     },
     fetchHabits() {
       fetch("http://localhost:3000/api/habits")
@@ -152,40 +330,3 @@ export default {
 };
 </script>
 
-<style>
-.calendar-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  margin: 1rem 0;
-}
-.calendar-buttons button {
-  cursor: pointer;
-  border: 1px solid #888;
-  background: #eee;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-family: Arial, sans-serif;
-  color: #222;
-  min-width: 60px;
-  user-select: none;
-  transition: background-color 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.9rem;
-}
-.calendar-buttons button div:first-child {
-  font-weight: bold;
-  margin-bottom: 0.2rem;
-}
-.calendar-buttons button.active {
-  background-color: #3f51b5;
-  color: white;
-  border-color: #2c387e;
-}
-.calendar-buttons button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-</style>

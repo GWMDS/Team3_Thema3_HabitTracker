@@ -1,54 +1,19 @@
 [
   {
-    "id": 2,
-    "name": "E",
-    "description": "",
-    "category": "Lernen",
-    "done": false,
-    "completions": 2,
-    "streak": 2,
-    "entries": {
-      "2025-06-23": {
-        "done": true
-      },
-      "2025-06-22": {
-        "done": true
-      },
-      "2025-06-24": {
-        "done": false
-      }
-    }
-  },
-  {
-    "id": 3,
-    "name": "B",
-    "description": "",
-    "category": "Lernen",
-    "done": false,
-    "completions": 3,
-    "streak": 1,
-    "entries": {
-      "2025-06-23": {
-        "done": true
-      },
-      "2025-06-21": {
-        "done": true
-      },
-      "2025-06-20": {
-        "done": true
-      }
-    }
-  },
-  {
-    "id": 4,
-    "name": "C",
-    "description": "2",
-    "category": "Produktivität",
+    "id": 1,
+    "name": "Wasser trinken",
+    "description": "Bitte mindestens 2Liter am Tag",
+    "category": "Gesundheit",
     "done": false,
     "completions": 1,
     "streak": 1,
+    "occurence": "Täglich",
+    "occurenceopt": [],
+    "tags": [
+      "Wasser trinken"
+    ],
     "entries": {
-      "2025-06-23": {
+      "2025-06-24": {
         "done": true
       }
     }
