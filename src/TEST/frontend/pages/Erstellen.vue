@@ -1,10 +1,8 @@
 <template>
   <v-app>      
-    <br>
-    <hr><br>
-
     <!-- Hauptinhalt -->
     <v-main>
+      <br>
       <v-container class="text-center">
         <v-text-field 
           label="Name"
@@ -143,9 +141,3 @@ function saveHabit() {
     })
 }
 </script>
-
-<style>
-body {
-  font-family: Roboto, sans-serif;
-}
-</style>
