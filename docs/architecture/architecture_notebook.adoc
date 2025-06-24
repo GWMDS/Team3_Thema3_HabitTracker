@@ -35,7 +35,7 @@ Kritische Fragen:
 - Einsatz von Vue.js als Frontend-Framework für SPA, da dort am meisten Erfahrung des Entwicklerteams vorliegt
 - Einsatz von Node.js als Backend-Framework da dies bereits im Studium benutzt wurde (optional, je nach Bedarf für Datenpersistenz oder APIs)
 - als CLI empfhielt sich die Node.js CLI oder Vite
-- Datenspeciherung im beginn erstmal nur mit JSON Dateien und express.js
+- Datenspeicherung zu Beginn erstmal nur mit JSON Dateien und express.js
 
 
 

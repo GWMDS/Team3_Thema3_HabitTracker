@@ -17,19 +17,20 @@ console.log(storedHabits)
 //////////////////////////
 
 
-//Allgemeiner GET Zugriff auf API
+//Allgemeiner GET Zugriff auf API - liefert Error zurück, weil Intention unklar ist
 app.get("/",(req,res) => {
-    res.send("Wrong API-Endpoint")
+    res.status(403);
+    res.send("Wrong API-Endpoint");
 });
 
-//GET Zugriff auf API - User will alle Habits
+//GET Zugriff auf API - User will alle ALLGEMEINEN Habits zur gegebenen ID
 app.get("/api/habits/:userID", (req,res) => {
     responseJSON = storedHabits[req.params.userID]
     console.log(responseJSON);
     res.send(JSON.stringify(responseJSON));
 });
 
-
+//Post Zugriff auf API - User will neues ALLGEMEINES Habit hinzufügen (bearbeiten ist extra!)
 //Content-Type HAS to be JSON
 app.post("/api/habits/:userID", (req,res) => {
     newHabit=req.body;
@@ -48,6 +49,7 @@ app.post("/api/habits/:userID", (req,res) => {
     }
 })
 
+//Default Port 8000, ansonsten vorgegebener Port 
 const port = process.env.PORT || 8000
 
 app.listen(port, () => console.log("Listening on port: " + port));
