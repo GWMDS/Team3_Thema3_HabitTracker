@@ -15,7 +15,7 @@
         <v-select
           v-model="selectedOccurrence"
           label="Häufigkeit"
-          :items="['Täglich', 'Wöchentlich', 'Monatlichlich', 'Benutzerdefiniert']"
+          :items="['Täglich', 'Wöchentlich', 'Monatlich', 'Benutzerdefiniert']"
         ></v-select>
 
         <v-row
