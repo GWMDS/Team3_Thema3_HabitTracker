@@ -2,6 +2,7 @@
   <v-app>
     <v-main>
       <v-container class="text-center" max-width="600px">
+        <br>
         <h2>Habit bearbeiten</h2>
         <v-text-field 
           label="Name"
