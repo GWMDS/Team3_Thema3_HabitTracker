@@ -3,7 +3,8 @@
     <!-- Hauptinhalt -->
     <v-main>
       <br>
-      <v-container class="text-center">
+      <v-container class="text-center" max-width="600px">
+        <h2>Habit erstellen</h2>
         <v-text-field 
           label="Name"
           v-model="enteredName"
@@ -46,7 +47,8 @@
           multiple
           clearable
         ></v-combobox>
-        <v-btn id="save-btn" color="primary" @click="showDialog">Speichern</v-btn>
+        <v-btn id="save-btn" color="primary" @click="showDialog">Erstellen</v-btn>
+        <v-btn text @click="cancelCreate">Abbrechen</v-btn>
       </v-container>
     </v-main>
 
@@ -76,7 +78,6 @@ import { ref } from 'vue'
 import { useTheme } from 'vuetify'
 import { useRouter } from 'vue-router'
 
-const theme = useTheme()
 const router = useRouter()
 
 // Form-Daten
@@ -107,6 +108,10 @@ const tags = [
 ]
 
 // Methoden
+function cancelCreate() {
+  router.push("/");
+}
+
 function showDialog() {
   console.log("Speicherbutton wurde geklickt!")
   dialog.value = true
