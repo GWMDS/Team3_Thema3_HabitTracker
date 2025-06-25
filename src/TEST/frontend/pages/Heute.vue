@@ -159,6 +159,15 @@
                       >
                         <v-icon small>mdi-delete</v-icon>
                       </v-btn>
+                      <v-btn
+                        outlined
+                        dense
+                        text
+                        color="primary"
+                        rounded
+                        @click="$router.push({ name: 'EditHabit', params: { id: habit.id } })">
+                          Bearbeiten
+                      </v-btn>
                     </v-col>
                   </v-row>
                 </div>

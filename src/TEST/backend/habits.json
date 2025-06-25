@@ -2,12 +2,12 @@
   {
     "id": 1,
     "name": "Bingo",
-    "description": "Bango",
+    "description": "Bish bash bosh",
     "category": "Produktivität",
     "done": false,
     "completions": 2,
     "streak": 2,
-    "occurence": "Täglich",
+    "occurence": "Wöchentlich",
     "occurenceopt": [],
     "tags": [
       "Programmieren"
