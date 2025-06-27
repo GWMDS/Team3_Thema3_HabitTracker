@@ -47,7 +47,7 @@
           multiple
           clearable
         ></v-combobox>
-        <v-btn id="save-btn" color="primary" @click="showDialog">Erstellen</v-btn>
+        <v-btn id="save-btn" color="primary" @click="saveHabit">Erstellen</v-btn>
         <v-btn text @click="cancelCreate">Abbrechen</v-btn>
       </v-container>
     </v-main>
@@ -70,12 +70,26 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <!-- Fehlerdialog -->
+    <v-dialog v-model="errordialog" max-width="400">
+      <v-card>
+        <v-card-title class="text-h6">Ungültige Eingabe!</v-card-title>
+        <v-container class="text-left">
+          <p style="white-space: pre-line;">{{ errorString }}</p>
+          
+        </v-container>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="errordialog = false">Schließen</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { useTheme } from 'vuetify'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -88,23 +102,18 @@ const selectedCategory = ref('')
 const selectedOccurrence = ref('')
 const selectedTags = ref([])
 
+const errorString = ref('')
+
 // UI-Zustand
 const dialog = ref(false)
+const errordialog = ref(false)
 
 // Optionen
 const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
 const tags = [
-  'Sport',
-  'Laufen',
-  'Lesen',
-  'Meditation',
-  'Programmieren',
-  'Freunde treffen',
-  'Wasser trinken',
-  'Früh aufstehen',
-  'Kein Social Media',
-  'Aufräumen',
-  'Dankbarkeit',
+  'Sport', 'Laufen', 'Lesen', 'Meditation', 'Programmieren',
+  'Freunde treffen', 'Wasser trinken', 'Früh aufstehen',
+  'Kein Social Media', 'Aufräumen', 'Dankbarkeit',
 ]
 
 // Methoden
@@ -112,15 +121,27 @@ function cancelCreate() {
   router.push("/");
 }
 
-function showDialog() {
-  console.log("Speicherbutton wurde geklickt!")
-  dialog.value = true
-  saveHabit()
+function checkInput() {
+  errorString.value = ""
+
+  console.log(enteredName.value, selectedOccurrence.value, selectedCategory.value, selectedDays.value.target)
+  if (enteredName.value === "" || selectedOccurrence.value === "" || selectedCategory.value === ""){
+    errorString.value = errorString.value + "Name, Häufigkeit und Kategorie muss angegeben sein!\n"
+  }
+
+  if (selectedOccurrence.value === "Benutzerdefiniert" && selectedDays.value.length == 0){
+     errorString.value = errorString.value + "Bei benutzerdefinierter Häufigkeit muss mind. ein Wochentag ausgewählt sein!\n"
+  }
 }
 
 function saveHabit() {
-  // TODO überarbeiten
-  fetch('http://localhost:3000/api/habits')
+  checkInput();
+
+  if (errorString.value !== ""){ // es gibt Fehler
+    errordialog.value = true
+  }
+  else{
+    fetch('http://localhost:3000/api/habits')
     .then(res => res.json())
     .then(data => {
       const newId = data.length > 0 ? Math.max(...data.map(h => h.id)) + 1 : 1
@@ -142,7 +163,8 @@ function saveHabit() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updated),
-      }).then(() => router.push('/'))
+      }).then(router.push("/"))
     })
+  }
 }
 </script>

@@ -62,6 +62,21 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+
+    <!-- Fehlerdialog -->
+    <v-dialog v-model="errordialog" max-width="400">
+      <v-card>
+        <v-card-title class="text-h6">Ungültige Eingabe!</v-card-title>
+        <v-container class="text-left">
+          <p style="white-space: pre-line;">{{ errorString }}</p>
+          
+        </v-container>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" text @click="errordialog = false">Schließen</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -81,7 +96,10 @@ const selectedCategory = ref('')
 const selectedOccurrence = ref('')
 const selectedTags = ref([])
 
+const errorString = ref('')
+
 const dialog = ref(false)
+const errordialog = ref(false)
 
 const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']
 const tags = [
@@ -112,39 +130,59 @@ onMounted(() => {
     })
 })
 
-function saveChanges() {
-  // Hole aktuelle Liste aller Habits, update den einen Eintrag und speichere alles neu (dein Backend-Setup)
-  fetch('http://localhost:3000/api/habits')
-    .then(res => res.json())
-    .then(data => {
-      const updatedHabits = data.map(h => {
-        if (h.id === Number(habitId)) {
-          return {
-            ...h,
-            name: enteredName.value,
-            description: enteredDescription.value,
-            category: selectedCategory.value,
-            occurence: selectedOccurrence.value,
-            occurenceopt: selectedDays.value,
-            tags: selectedTags.value,
-          }
-        }
-        return h
-      })
+function checkInput() {
+  errorString.value = ""
 
-      return fetch('http://localhost:3000/api/habits', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedHabits),
+  console.log(enteredName.value, selectedOccurrence.value, selectedCategory.value, selectedDays.value.target)
+  if (enteredName.value === "" || selectedOccurrence.value === "" || selectedCategory.value === ""){
+    errorString.value = errorString.value + "Name, Häufigkeit und Kategorie muss angegeben sein!\n"
+  }
+
+  if (selectedOccurrence.value === "Benutzerdefiniert" && selectedDays.value.length == 0){
+     errorString.value = errorString.value + "Bei benutzerdefinierter Häufigkeit muss mind. ein Wochentag ausgewählt sein!\n"
+  }
+}
+
+function saveChanges() {
+  checkInput()
+
+  if (errorString.value !== ""){ // es gibt Fehler
+    errordialog.value = true
+  }
+  else{
+    // Hole aktuelle Liste aller Habits, update den einen Eintrag und speichere alles neu (dein Backend-Setup)
+    fetch('http://localhost:3000/api/habits')
+      .then(res => res.json())
+      .then(data => {
+        const updatedHabits = data.map(h => {
+          if (h.id === Number(habitId)) {
+            return {
+              ...h,
+              name: enteredName.value,
+              description: enteredDescription.value,
+              category: selectedCategory.value,
+              occurence: selectedOccurrence.value,
+              occurenceopt: selectedDays.value,
+              tags: selectedTags.value,
+            }
+          }
+          return h
+        })
+
+        return fetch('http://localhost:3000/api/habits', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedHabits),
+        })
       })
-    })
-    .then(() => {
-      dialog.value = true
-    })
-    .catch(err => {
-      console.error(err)
-      alert('Fehler beim Speichern')
-    })
+      .then(() => {
+        dialog.value = true
+      })
+      .catch(err => {
+        console.error(err)
+        alert('Fehler beim Speichern')
+      })
+  }
 }
 
 function closeDialog() {
