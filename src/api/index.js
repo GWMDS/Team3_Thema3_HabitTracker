@@ -6,7 +6,7 @@
 //HTTP-Request: PUT /api/habits/id (bearbeiten)
     //hier mit json-Objekt im body!
 
-const express=require("express");
+import express from "express";
 const app = express();
 //app.use(express.json);
 
