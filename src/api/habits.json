@@ -1,16 +1,53 @@
-{
-    "1":{
-        "name": "SSIO",
-        "habits":{
-            "1":"Mehr Geld verdienen",
-            "2":"Noch mehr Para machen"
-        }
-    },
-    "2":{
-        "name":"Anke Jürgens",
-        "habits":{
-            "1":"Mehr selber Kochen",
-            "2":"Jeden Tag 10000 Schritte machen"
-        }
+[
+  {
+    "id": 1,
+    "name": "Bingo",
+    "description": "Bish bash bosh",
+    "category": "Produktivität",
+    "done": false,
+    "completions": 2,
+    "streak": 2,
+    "occurence": "Wöchentlich",
+    "occurenceopt": [],
+    "tags": [
+      "Programmieren"
+    ],
+    "entries": {
+      "2025-06-25": {
+        "done": true
+      },
+      "2025-06-24": {
+        "done": true
+      }
     }
-}
+  },
+  {
+    "id": 2,
+    "name": "Wasser trinken",
+    "description": "",
+    "category": "Gesundheit",
+    "done": false,
+    "completions": 5,
+    "streak": 1,
+    "occurence": "",
+    "occurenceopt": [],
+    "tags": [],
+    "entries": {
+      "2025-06-25": {
+        "done": true
+      },
+      "2025-06-23": {
+        "done": true
+      },
+      "2025-06-22": {
+        "done": true
+      },
+      "2025-06-21": {
+        "done": true
+      },
+      "2025-06-20": {
+        "done": true
+      }
+    }
+  }
+]

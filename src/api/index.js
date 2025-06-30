@@ -7,11 +7,15 @@
     //hier mit json-Objekt im body!
 
 import express from "express";
+import {DB} from "./connect.js";
+import * as fs from 'fs';
+
 const app = express();
 //app.use(express.json);
 
 //////only temporary//////
-storedHabits = require("./habits.json");
+
+let storedHabits = JSON.parse(fs.readFileSync('./habits.json'));
 console.log(storedHabits)
 //console.log(storedHabits);
 //////////////////////////
@@ -32,21 +36,39 @@ app.get("/api/habits/:userID", (req,res) => {
 
 //Post Zugriff auf API - User will neues ALLGEMEINES Habit hinzufügen (bearbeiten ist extra!)
 //Content-Type HAS to be JSON
-app.post("/api/habits/:userID", (req,res) => {
+app.post("/api/habits", (req,res) => {
     newHabit=req.body;
 
-//TODO - Testen!
-    if(storedHabits[req.params.userID.toString()]!=null){
-        counter=1;
-        while(True){
-            if(storedHabit[req.params.userID.toString()]["habits"][counter.toString()]!=null){
-                counter+=1;
+    const sql = "INSERT INTO habit(habit_name,habit_description,habit_category,habit_occurence) VALUES (?,?,?,?)";
+    let newId;
+    try{
+        DB.run(sql,[req.body.name,req.body.description,req.body.category], function(err){
+            if(err){
+                throw err;
             }
-            else{
-                storedHabit[req.params.userID.toString()]["habits"][counter.toString()]=newHabit;
-            }
-        }
+            newId=this.lastID;
+            res.status(201);
+            let data = {status: 201,message: `new Habit ${newId} saved`};
+            let content = JSON.stringify(data);
+            res.send(content);
+        })
     }
+    catch(err){
+        console.log(err.message);
+
+    }
+////TODO - Testen!
+//    if(storedHabits[req.params.userID.toString()]!=null){
+//        counter=1;
+//        while(True){
+//            if(storedHabit[req.params.userID.toString()]["habits"][counter.toString()]!=null){
+//                counter+=1;
+//            }
+//            else{
+//                storedHabit[req.params.userID.toString()]["habits"][counter.toString()]=newHabit;
+//            }
+//        }
+//    }
 })
 
 //Default Port 8000, ansonsten vorgegebener Port 
