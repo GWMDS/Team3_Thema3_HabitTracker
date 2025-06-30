@@ -49,5 +49,17 @@
         "done": true
       }
     }
+  },
+  {
+    "id": 3,
+    "name": "Ich habe große Schmerzen",
+    "description": "Jede Faser meines Körpers brennt",
+    "category": "Lernen",
+    "done": false,
+    "completions": 0,
+    "streak": 0,
+    "occurence": "Monatlichlich",
+    "occurenceopt": [],
+    "tags": []
   }
 ]
