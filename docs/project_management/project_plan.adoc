@@ -51,20 +51,37 @@ Ein Product Backlog Item (z. B. eine User Story) kann für die Sprint-Planung 
 Eine User Story oder ein Task gilt als abgeschlossen, wenn folgende Kriterien erfüllt sind:
 
 * Alle Akzeptanzkriterien sind erfüllt.
-* Der Code ist vollständig implementiert und getestet (Unit- und ggf. Integrationstests).
+* Der Code ist vollständig implementiert und getestet.
 * Der Code wurde von mindestens einer Person im Team reviewed.
 * Alle automatisierten Tests laufen erfolgreich durch.
 * Die Funktionalität wurde manuell getestet (falls erforderlich).
 * Es gibt keine bekannten offenen Bugs.
-* Die Änderung ist dokumentiert (z. B. in der technischen Doku oder im Changelog).
+* Die Änderung ist dokumentiert .
 * Die Implementierung ist in den Hauptbranch integriert.
 * Die Software ist bereit für den Release bzw. das Deployment.
-* Der Product Owner hat die Umsetzung abgenommen (falls vorgesehen).
+* Der Product Owner hat die Umsetzung abgenommen.
 
 
 == Deployment
 //Outline the strategy for deploying the software (and its updates) into the production environment.
 
+1. Deployment-Zeit festlegen (z. B. abends).
+2. Manuelle Tests der wichtigsten Funktionen durchführen.
+3. Neue Version per Kopieren (FTP, etc.) auf den Server übertragen.
+4. Nach Deployment kurz prüfen, ob alles läuft.
+5. Bei Problemen alte Version zurückspielen.
+6. Deployment kurz dokumentieren.
+
 
 == Erkenntnisse (Lessons learned)
+
+* Bessere Absprachen mit dem Team
+* Klare Aufgabenverteilung und Zuteilung von Issues
+* Besseres Zusammenarbeiten
+* Einbringen von jedem Teammitglied
+* Bessere Organisation im GitHub
+* Meeting um Programmierablauf zu besprechen (um dann starten zu können)
+* klare Kommunikation von Problemen und benötigter Hilfe. 
+
+
 // Führen Sie hier die wesentlichen Erkenntnisse auf, die Sie in den Retrospektiven gewonnen haben. Legen Sie besonderen Fokus auf die Maßnahmen, die Sie getroffen haben um Verbesserungen in den verschiedenen Aspekten des Projekts zu erzielen, z.B. dem Entwicklungsprozess, der technischen und organisatorischen Umgebung oder der Zusammenarbeit im Team.

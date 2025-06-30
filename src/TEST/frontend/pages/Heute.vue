@@ -100,7 +100,7 @@
                 <div class="d-flex align-center">
                   <v-checkbox
                     class="mr-2"
-                    :input-value="getStatus(habit)"
+                    :model-value="getStatus(habit)"
                     :disabled="!isEditable"
                     @change.stop="toggleHabit(habit, $event)"
                     @click.stop
@@ -133,9 +133,9 @@
                   v-show="openedPanels.includes(habit.id)"
                   class="pl-10 text-body-2 text--secondary mt-3"
                 >
-                  <p><strong>Beschreibung:</strong> {{ habit.description || "Keine Beschreibung" }}</p>
+                  <p><strong>Beschreibung: </strong> {{ habit.description || "Keine Beschreibung" }}</p>
                   <p>
-                    <strong>Tags:</strong>
+                    <strong>Tags: </strong>
                     <span v-if="habit.tags && habit.tags.length">
                       <v-chip
                         v-for="(tag, index) in parsedTags(habit.tags)"
@@ -193,6 +193,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Heute",
   data() {
@@ -285,7 +286,9 @@ export default {
     },
     // Status (Checkbox) auslesen
     getStatus(habit) {
-      return habit.entries?.[this.selectedDate]?.done || false;
+      console.log("Habit selected date:  " +  this.selectedDate)
+      console.log("State: " + habit.entries?.[this.selectedDate]?.done ?? false)
+      return habit.entries?.[this.selectedDate]?.done ?? false
     },
     // Checkbox-Änderung speichern
     toggleHabit(habit, isChecked) {

@@ -114,7 +114,7 @@ Nutzer:innen können Gewohnheiten in Form eines schlichten Journals erfassen.
 Lokale Daten können jederzeit exportiert oder gelöscht werden.
 App verwendet keine Tracker oder Analyse-Tools im Hintergrund.
 Minimalistisches, nicht ablenkendes Design (ohne Benachrichtigungen).
-Möchtest du für Thomas auch eine konkrete UI-Idee oder Wireframe-Skizze mitgestalten?
+
 
 == Nutzungskontext
 // Beschreiben Sie die Arbeitsaufgaben, Arbeitsmittel, physische und soziale Umgebung, in der das Produkt genutzt wird. 
