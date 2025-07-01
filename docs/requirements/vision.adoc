@@ -138,11 +138,12 @@ Hinweise:
 
 
 
-:plantumlsdir: diagrams
+
+//falls im vision notwenig:
 
 == Domänenmodell
-hier noch inkludieren.. error unbekannt
-[plantuml, domänenmodell, svg]
-----
-include::{plantumlsdir}/domaenmodell.puml[]
-----
+[plantuml, "{diagramsdir}/syntax-example2",svg]
+....
+include::{plantumlsdir}/domaenenmodell.puml[]
+.... 
+ 
