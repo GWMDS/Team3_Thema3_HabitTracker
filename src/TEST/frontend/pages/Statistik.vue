@@ -97,7 +97,7 @@ export default {
   },
   methods: {
     fetchHabits() {
-      fetch("http://localhost:3000/api/habits")
+      fetch("http://192.168.0.97:3000/api/habits")
         .then((res) => res.json())
         .then((data) => {
           data.forEach((habit) => {

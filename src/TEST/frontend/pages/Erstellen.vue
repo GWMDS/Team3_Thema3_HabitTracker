@@ -141,7 +141,7 @@ function saveHabit() {
     errordialog.value = true
   }
   else{
-    fetch('http://localhost:3000/api/habits')
+    fetch('http://192.168.0.97:3000/api/habits')
     .then(res => res.json())
     .then(data => {
       const newId = data.length > 0 ? Math.max(...data.map(h => h.id)) + 1 : 1
@@ -159,7 +159,7 @@ function saveHabit() {
 
       }
       const updated = [...data, newHabit]
-      fetch('http://localhost:3000/api/habits', {
+      fetch('http://192.168.0.97:3000/api/habits', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updated),
