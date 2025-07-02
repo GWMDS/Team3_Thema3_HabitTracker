@@ -330,7 +330,7 @@ export default {
     },
     // Alle Habits vom Server laden
     fetchHabits() {
-      fetch("http://localhost:3000/api/habits")
+      fetch("http://192.168.0.97:3000/api/habits")
         .then((res) => res.json())
         .then((data) => {
           this.habits = data.map((h) => {
@@ -349,7 +349,7 @@ export default {
     },
     // Änderungen speichern (POST an Server)
     saveHabits() {
-      fetch("http://localhost:3000/api/habits", {
+      fetch("http://192.168.0.97:3000/api/habits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.habits),
