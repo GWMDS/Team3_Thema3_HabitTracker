@@ -308,7 +308,7 @@ export default {
       return tags.toString().split(",").map((t) => t.trim());
     },
     fetchHabits() {
-      fetch("http://localhost:3000/api/habits")
+      fetch("http://192.168.0.97:3000/api/habits")
         .then((res) => res.json())
         .then((data) => {
           this.habits = data.map((h) => {
@@ -325,7 +325,7 @@ export default {
         });
     },
     saveHabits() {
-      fetch("http://localhost:3000/api/habits", {
+      fetch("http://192.168.0.97:3000/api/habits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.habits),
