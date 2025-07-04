@@ -6,9 +6,9 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Allgemeine Informationen
-
-== Test Cases
-
-=== Test Case 01
-
-=== Test Case 02
+Zum akutellen Stand nicht umgesetzt.
+//== Test Cases
+//
+//=== Test Case 01
+//
+//=== Test Case 02

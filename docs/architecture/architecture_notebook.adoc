@@ -17,16 +17,16 @@ Dieses Dokument beschreibt die Philosophie, Entscheidungen, Nebenbedingungen, Be
 //Hinweise: Beschreiben Sie den zentralen Ansatz für ihre Architektur. Identifizieren Sie alle Aspekte, die die Philosophie beeinflussen, z.B. komplexe Auslieferung Aspekte, Anpassung von Altsystemen oder besondere Geschwindigkeitsanforderungen. Muss es besonders robust sein, um eine langfristige Wartung und Pflege zu ermöglichen?
 
 //Formulieren Sie eine Reihe von Zielen, die die Architektur in ihrer Struktur und ihrem Verhalten erfüllen muss. Identifizieren Sie kritische Fragen, die von der Architektur adressiert werden müssen, z.B. besondere Hardware-Abhängigkeiten, die vom Rest des Systems isoliert werden sollten oder Sicherstellung der Funktionsfähigkeit unter besonderen Bedingungen (z.B. Offline-Nutzung).
-Das System soll als eine Progressive Web App (PWA) umgesetzt werden, um die Kompalibiltät mit möglichst vielen Geräten zu gewährleisten.
-
+//Das System soll als eine Progressive Web App (PWA) umgesetzt werden, um die Kompalibiltät mit möglichst vielen Geräten zu gewährleisten.
+- *Trennung in Front- und Backend*
+Um die Entwicklung zu vereinfachen soll die Anwendung in Frontend und Backend aufgeteilt werden, an denen separat gearbeitet wird. Die Kommunikation erfolgt über eine API.
 - *Plattformunabhängigkeit:* die Anwendung läuft im Webbrowser und soll auf PCs, Tablets und Smartphones bedienbar sein (-> Responsive Design)
-- *Offline-Nutzung:* durch einen Service-Worker cacht die PWA alle Daten, sodass eine Nutzung ohne Internetverbindung möglich ist
+//- *Offline-Nutzung:* durch einen Service-Worker cacht die PWA alle Daten, sodass eine Nutzung ohne Internetverbindung möglich ist
 - *einfache Bereitstellung:* durch den Webansatz ist keine komplizierte Installation notwendig (Nutzer können die App einfach als Icon auf den Homescreen hinzufügen)
+- *Geräteunabhängigkeit:* durch die Speicherung der Daten im dem serverseitigen Backend ist die Datenlage unabhängig von dem verwendeten Gerät, der Nutzer kann seine Habits also auf unterschiedlichen Geräten verwalten.
 
-Kritische Fragen:
-
-- ist neben der PWA ein zusätzliches Backend nötig (Datenbank etc.) oder nur clientseitiges Arbeiten?
-- gibt es sonst noch irgendwelche externen APIs auf die man zugreifen müsste?
+//- ist neben der PWA ein zusätzliches Backend nötig (Datenbank etc.) oder nur clientseitiges Arbeiten?
+//- gibt es sonst noch irgendwelche externen APIs auf die man zugreifen müsste?
 
 == Annahmen und Abhängigkeiten
 //[List the assumptions and dependencies that drive architectural decisions. This could include sensitive or critical areas, dependencies on legacy interfaces, the skill and experience of the team, the availability of important resources, and so forth]
@@ -35,16 +35,18 @@ Kritische Fragen:
 - Einsatz von Vue.js als Frontend-Framework für SPA, da dort am meisten Erfahrung des Entwicklerteams vorliegt
 - Einsatz von Node.js als Backend-Framework da dies bereits im Studium benutzt wurde (optional, je nach Bedarf für Datenpersistenz oder APIs)
 - als CLI empfhielt sich die Node.js CLI oder Vite
-- Datenspeicherung zu Beginn erstmal nur mit JSON Dateien und express.js
-
-
+- Datenspeicherung zu Beginn erstmal nur mit JSON Dateien und SQLite
+- Das Hosting wird bei der finalen Version auf einer VM erfolgen
+- Nutzerzahl wird eher gering ausfallen -> Performance sollte akzeptabel sein, ist jedoch keine Priorität
 
 == Architektur-relevante Anforderungen
 //Fügen Sie eine Referenz / Link zu den Anforderungen ein, die implementiert werden müssen, um die Architektur zu erzeugen.
 - [ ] Responsives Design für alle Endgeräte
-- [ ] Offline-Verfügbarkeit über Service Worker
+//- [ ] Offline-Verfügbarkeit über Service Worker
 - [ ] REST-API zur Datenübertragung zwischen Frontend und Backend
-- [ ] Lesende und schreibende Speicherung von Daten (zunächst JSON, später DB)
+- [ ] Erstellung der Datenbankstruktur
+- [ ] Anbindung der Datenbank an das Backend
+- [ ] Lesende und schreibende Speicherung von Daten
 - [ ] Einfache Deployment-Möglichkeit (z. B. auf Render, Vercel, o.ä.)
 
 == Entscheidungen, Nebenbedingungen und Begründungen
@@ -52,11 +54,10 @@ Kritische Fragen:
 
 . *Frontend mit Vue.js*: Moderne, komponentenbasierte Entwicklung; im Team bekannt.
 . *Backend mit Node.js + Express*: Einfache API-Erstellung, Erfahrung im Studium vorhanden.
-. *JSON-Dateien für persistente Daten*: Schnell implementierbar ohne zusätzliche Infrastruktur.
-. *Verzicht auf Datenbank in der ersten Version*: Fokus auf MVP; Erweiterung später möglich.
+. *Mix aus Datenbank und JSON*: JSON-Dateien zur Speicherung, um schnell gewisse Funktionalität zu erreichen, Datenbank um sicherere, performatere und komplexere Operationen auszuführen. Spätere Migration zu PostgreSQL möglich.
 . *Vite als Build-Tool*: Schnell, modern, gut integriert mit Vue 3.
 . *REST-Architektur*: Klare Trennung von Zuständigkeiten; leicht testbar und wartbar.
-. *Service Worker*: Für Offline-Unterstützung über das PWA-Konzept.
+//. *Service Worker*: Für Offline-Unterstützung über das PWA-Konzept.
 
 
 == Schichten oder Architektur-Framework
@@ -65,15 +66,16 @@ Wir verwenden eine klassische 3-Schichten-Architektur:
 1. **Präsentationsschicht (Client/PWA)**  
    - Vue.js SPA  
    - Kommunikation über HTTP mit REST-API  
-   - Service Worker für Offline-Funktionalität  
+//- Service Worker für Offline-Funktionalität  
 
 2. **Logikschicht (Backend/API)**  
    - Node.js + Express  
    - REST-Endpoints zum Lesen/Schreiben von Daten  
 
 3. **Datenhaltungsschicht**  
-   - JSON-Dateien im Dateisystem (zunächst)  
-   - Option für spätere Migration zu MongoDB oder SQLite  
+   - JSON-Dateien im Dateisystem
+   - SQLite
+   - Option für spätere Migration zu PostgreSQL  
 
 
 == Architektursichten (Views)
@@ -91,10 +93,11 @@ include::{plantumlsdir}/context.puml[]
 ....
 include::{plantumlsdir}/container.puml[]
 ....
-=== Components
+//=== Components
+//Zum aktuellen Stand nicht umgesetzt
 //Level 3 im C4-Modell
 
 
-=== Verteilungsdiagramm (Deployment Diagramm)
+//=== Verteilungsdiagramm (Deployment Diagramm)
 //Beschreibt die physischen Knoten (Rechner) des Systems und Komponenten, die in diesen Knoten ausgeführt werden. Diese Sicht wird nicht benötigt, wenn das System in einem einzelnen Prozess oder Thread ausgeführt wird.
 
