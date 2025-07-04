@@ -134,8 +134,4 @@ Hier können zudem bei Bedarf Teile des Unternehmensmodells (Prozesse, Organigra
 == Wireframes und Wireflow
 // Fügen Sie Wireframes als Bilder oder als Link (z.B. zu einem Miroboard) ein
 // Beziehen Sie ihre Wireframes auf konkrete User Stories oder Epics.
-:imagesdir: images
-
-image::frame1.png[Diagramm]
-image::frame2.png[Diagramm]
-image::frame3.png[Diagramm]
+image::bilder/diagramm.png[Diagramm]

@@ -16,7 +16,7 @@
         <v-select
           v-model="selectedOccurrence"
           label="Häufigkeit"
-          :items="['Täglich', 'Wöchentlich', 'Monatlichlich', 'Benutzerdefiniert']"
+          :items="['Täglich', 'Wöchentlich', 'Monatlich', 'Benutzerdefiniert']"
         ></v-select>
 
         <v-row
@@ -110,7 +110,7 @@ const tags = [
 
 // Lade Habit-Daten bei Initialisierung
 onMounted(() => {
-  fetch(`http://localhost:3000/api/habits/${habitId}`)
+  fetch(`http://192.168.0.97:3000/api/habits/${habitId}`)
     .then(res => {
       if (!res.ok) throw new Error('Habit nicht gefunden')
       return res.json()
@@ -151,7 +151,7 @@ function saveChanges() {
   }
   else{
     // Hole aktuelle Liste aller Habits, update den einen Eintrag und speichere alles neu (dein Backend-Setup)
-    fetch('http://localhost:3000/api/habits')
+    fetch('http://192.168.0.97:3000/api/habits')
       .then(res => res.json())
       .then(data => {
         const updatedHabits = data.map(h => {
@@ -169,7 +169,7 @@ function saveChanges() {
           return h
         })
 
-        return fetch('http://localhost:3000/api/habits', {
+        return fetch('http://192.168.0.97:3000/api/habits', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updatedHabits),

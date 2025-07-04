@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <v-container>
-      <!-- Übersicht -->
+      <!-- Übersicht: Zeigt aktuelle Auswahl, Anzahl Habits, abgeschlossene heute und Durchschnittsrate -->
       <v-row class="mb-6" dense>
         <v-col cols="12" md="3">
           <v-card class="pa-3" outlined>
@@ -29,7 +29,7 @@
         </v-col>
       </v-row>
 
-      <!-- Kalender Buttons -->
+      <!-- Buttons für die letzten 7 Tage (inkl. heute) -->
       <v-row class="mb-4" justify="center">
         <v-btn
           v-for="(day, index) in lastFiveDays"
@@ -45,7 +45,7 @@
         </v-btn>
       </v-row>
 
-      <!-- Filter & Suche -->
+      <!-- Filter: Suche + Kategorie -->
       <v-row class="mb-4" align="center">
         <v-col cols="12" md="6">
           <v-text-field
@@ -67,6 +67,7 @@
           />
         </v-col>
         <v-col cols="12" md="2">
+          <!-- Button zum Erstellen einer neuen Gewohnheit -->
           <v-btn
             outlined
             dense
@@ -81,7 +82,7 @@
         </v-col>
       </v-row>
 
-      <!-- Habits mit Border & Checkbox vorne, nur Vuetify Styling -->
+      <!-- Liste aller gefilterten Habits -->
       <v-row>
         <v-col cols="12" md="8" offset-md="2">
           <v-hover v-slot="{ hover }" v-for="habit in filteredHabits" :key="habit.id" class="mb-3">
@@ -91,6 +92,7 @@
               :elevation="hover ? 6 : 2"
               class="pa-4"
             >
+              <!-- Kopfbereich mit Checkbox, Name und Kategorie -->
               <div
                 class="habit-header d-flex justify-space-between align-center cursor-pointer"
                 @click="togglePanel(habit.id)"
@@ -116,6 +118,7 @@
                   </v-chip>
                 </div>
 
+                <!-- Streak-Zähler -->
                 <div class="text-subtitle-2">
                   🔥 Streak: <strong>{{ habit.streak || 0 }}</strong> Tage
                   <v-icon small class="ml-2">
@@ -124,6 +127,7 @@
                 </div>
               </div>
 
+              <!-- Ausklappbereich: Beschreibung, Tags, Aktionen -->
               <v-expand-transition>
                 <div
                   v-show="openedPanels.includes(habit.id)"
@@ -147,6 +151,8 @@
                     </span>
                     <span v-else>Keine Tags</span>
                   </p>
+
+                  <!-- Buttons: Löschen und Bearbeiten -->
                   <v-row justify="space-between" align="center">
                     <v-col cols="auto" class="text-right">
                       <v-btn
@@ -165,8 +171,9 @@
                         text
                         color="primary"
                         rounded
-                        @click="$router.push({ name: 'EditHabit', params: { id: habit.id } })">
-                          Bearbeiten
+                        @click="$router.push({ name: 'EditHabit', params: { id: habit.id } })"
+                      >
+                        Bearbeiten
                       </v-btn>
                     </v-col>
                   </v-row>
@@ -175,6 +182,7 @@
             </v-card>
           </v-hover>
 
+          <!-- Falls keine Habits gefunden -->
           <div v-if="filteredHabits.length === 0" class="text-center grey--text">
             Keine Habits gefunden.
           </div>
@@ -190,26 +198,30 @@ export default {
   name: "Heute",
   data() {
     return {
-      habits: [],
-      selectedDate: new Date().toISOString().split("T")[0],
-      todayDate: new Date().toISOString().split("T")[0],
-      searchTerm: "",
-      selectedCategory: null,
-      openedPanels: [], // Offene Habit-IDs
+      habits: [], // Alle geladenen Habits
+      selectedDate: new Date().toISOString().split("T")[0], // Ausgewähltes Datum (Standard = heute)
+      todayDate: new Date().toISOString().split("T")[0], // Heutiges Datum
+      searchTerm: "", // Suchbegriff für Name/Tags
+      selectedCategory: null, // Kategorie-Filter
+      openedPanels: [], // IDs der geöffneten Details-Panels
     };
   },
   computed: {
+    // Anzahl heute erledigter Habits
     completedToday() {
       return this.habits.filter((h) => h.entries?.[this.selectedDate]?.done).length;
     },
+    // Durchschnittliche Abschlussrate über max. 66 Tage
     averageRate() {
       if (this.habits.length === 0) return 0;
       const total = this.habits.reduce((sum, h) => sum + (h.completions || 0), 0);
       return Math.round((total / (66 * this.habits.length)) * 100);
     },
+    // Nur heute kann bearbeitet werden
     isEditable() {
       return this.selectedDate === this.todayDate;
     },
+    // Letzte 7 Tage (inkl. heute) mit Wochentag & Datum
     lastFiveDays() {
       const days = [];
       const dayNames = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
@@ -227,6 +239,7 @@ export default {
       }
       return days;
     },
+    // Alle vorhandenen Kategorien (einmalig)
     allCategories() {
       const cats = this.habits
         .map((h) => h.category)
@@ -235,6 +248,7 @@ export default {
         .sort();
       return cats;
     },
+    // Gefilterte Liste nach Suche und Kategorie
     filteredHabits() {
       const searchLower = this.searchTerm.toLowerCase().trim();
 
@@ -257,9 +271,11 @@ export default {
     },
   },
   methods: {
+    // Datum wechseln (z. B. durch Klick auf Kalenderbutton)
     selectDate(date) {
       this.selectedDate = date;
     },
+    // Panel umschalten (auf/zu)
     togglePanel(habitId) {
       const idx = this.openedPanels.indexOf(habitId);
       if (idx > -1) {
@@ -268,11 +284,13 @@ export default {
         this.openedPanels.push(habitId);
       }
     },
+    // Status (Checkbox) auslesen
     getStatus(habit) {
       console.log("Habit selected date:  " +  this.selectedDate)
       console.log("State: " + habit.entries?.[this.selectedDate]?.done ?? false)
       return habit.entries?.[this.selectedDate]?.done ?? false
     },
+    // Checkbox-Änderung speichern
     toggleHabit(habit, isChecked) {
       if (!this.isEditable) return;
 
@@ -284,10 +302,12 @@ export default {
         delete habit.entries[this.selectedDate];
       }
 
+      // Neue Abschlussanzahl & Streak berechnen
       habit.completions = Object.values(habit.entries).filter((e) => e.done).length;
       this.recalculateStreak(habit);
       this.saveHabits();
     },
+    // Streak berechnen (zusammenhängende erledigte Tage rückwärts)
     recalculateStreak(habit) {
       let streak = 0;
       let currentDate = new Date(this.selectedDate);
@@ -302,16 +322,19 @@ export default {
       }
       habit.streak = streak;
     },
+    // Tags-String zu Array umwandeln
     parsedTags(tags) {
       if (!tags) return [];
       if (Array.isArray(tags)) return tags;
       return tags.toString().split(",").map((t) => t.trim());
     },
+    // Alle Habits vom Server laden
     fetchHabits() {
-      fetch("http://localhost:3000/api/habits")
+      fetch("http://192.168.0.97:3000/api/habits")
         .then((res) => res.json())
         .then((data) => {
           this.habits = data.map((h) => {
+            // Backward-Kompatibilität: evtl. alte Struktur umwandeln
             if (!h.entries) {
               h.entries = {};
               if (h.done) {
@@ -324,21 +347,22 @@ export default {
           });
         });
     },
+    // Änderungen speichern (POST an Server)
     saveHabits() {
-      fetch("http://localhost:3000/api/habits", {
+      fetch("http://192.168.0.97:3000/api/habits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.habits),
       });
     },
+    // Habit löschen
     deleteHabit(id) {
       this.habits = this.habits.filter((h) => h.id !== id);
       this.saveHabits();
     },
   },
   mounted() {
-    this.fetchHabits();
+    this.fetchHabits(); // Beim Laden automatisch Habits holen
   },
 };
 </script>
-

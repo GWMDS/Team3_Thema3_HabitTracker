@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "name": "Bingo",
-    "description": "Bish bash bosh",
+    "name": "APL programmieren",
+    "description": "das frontend weiter bearbeiten",
     "category": "Produktivität",
     "done": false,
     "completions": 2,
@@ -24,14 +24,16 @@
   {
     "id": 2,
     "name": "Wasser trinken",
-    "description": "",
+    "description": "jeden Tag 2 Liter",
     "category": "Gesundheit",
     "done": false,
     "completions": 5,
     "streak": 1,
-    "occurence": "",
+    "occurence": "Täglich",
     "occurenceopt": [],
-    "tags": [],
+    "tags": [
+      "Wasser trinken"
+    ],
     "entries": {
       "2025-06-25": {
         "done": true
@@ -52,14 +54,36 @@
   },
   {
     "id": 3,
-    "name": "Ich habe große Schmerzen",
-    "description": "Jede Faser meines Körpers brennt",
+    "name": "GPM lernen",
+    "description": "Spickzettel schreiben",
     "category": "Lernen",
+    "done": false,
+    "completions": 1,
+    "streak": 1,
+    "occurence": "Täglich",
+    "occurenceopt": [],
+    "tags": [],
+    "entries": {
+      "2025-07-01": {
+        "done": true
+      },
+      "2025-06-30": {
+        "done": true
+      }
+    }
+  },
+  {
+    "id": 4,
+    "name": "BS lernen",
+    "description": "lernen",
+    "category": "Sonstiges",
     "done": false,
     "completions": 0,
     "streak": 0,
-    "occurence": "Monatlichlich",
+    "occurence": "Täglich",
     "occurenceopt": [],
-    "tags": []
+    "tags": [
+      "Lesen"
+    ]
   }
 ]

@@ -1,7 +1,7 @@
 // --- 1. Projektthema -------------------------
 = SE I - Belegabgabe: {project-name}
 // --- 2. Teammitglieder -----------------------
-Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>; Vorname Nachname <s00000@htw-dresden.de>
+Ahmad Alrmih <s86396@htw-dresden.de>; Maurice Harnisch <s87128@htw-dresden.de>; Marius Hoffmann <s86306@htw-dresden.de>; Eric Hübel <s86462@htw-dresden.de>; Victor Saeed <s87082@htw-dresden.de>; Luisa Wehner <s87064@htw-dresden.de>; Gabriel Wulkow Moreira da Silva <s87063@htw-dresden.de>
 // --- 3. Abgabedatum --------------------------
 01. Januar 2025
 // ---------------------------------------------
