@@ -6,7 +6,7 @@ include::../_includes/default-attributes.inc.adoc[]
 
 
 == Allgemeine Informationen
-Zum akutellen Stand nicht umgesetzt.
+Zum aktuellen Stand nicht umgesetzt.
 //== Test Cases
 //
 //=== Test Case 01
